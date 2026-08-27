@@ -171,6 +171,55 @@
   .note{margin-top:30px; font-size:12px; color:var(--ink-soft); border-top:1px solid var(--border); padding-top:16px;}
 
   @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} *{transition:none !important;} }
+  /* INTERACTIVE LEDGER */
+  .ledger-row{cursor:pointer; transition:box-shadow 0.15s ease, transform 0.1s ease;}
+  .ledger-row:hover, .ledger-row:focus-visible{
+    box-shadow: 0 2px 6px rgba(60,64,67,0.15), 0 4px 10px rgba(60,64,67,0.1);
+  }
+  .ledger-row .expand-hint{
+    grid-column:1 / -1;
+    font-size:12px; color:var(--blue); font-weight:500;
+    margin-top:4px;
+  }
+
+  /* MODAL */
+  .modal-overlay{
+    position:fixed; inset:0;
+    background:rgba(32,33,36,0.6);
+    display:none; align-items:flex-start; justify-content:center;
+    padding:6vh 20px; z-index:100; overflow-y:auto;
+  }
+  .modal-overlay.open{display:flex;}
+  .modal-panel{
+    background:#fff; border-radius:16px;
+    max-width:760px; width:100%; margin-bottom:6vh;
+    box-shadow:0 8px 28px rgba(0,0,0,0.28);
+  }
+  .modal-head{
+    padding:28px 32px 20px; border-bottom:1px solid var(--border);
+    display:flex; justify-content:space-between; align-items:flex-start; gap:16px;
+    position:sticky; top:0; background:#fff; border-radius:16px 16px 0 0;
+  }
+  .modal-head .org{font-family:'Google Sans','Roboto',sans-serif; font-weight:500; font-size:23px; color:var(--ink);}
+  .modal-head .role{color:var(--ink-soft); font-size:14px; margin-top:6px;}
+  .modal-head .period{color:var(--blue); font-size:12.5px; margin-top:8px; font-weight:500;}
+  .modal-close{
+    background:#F1F3F4; border:none; color:var(--ink-soft);
+    width:34px; height:34px; border-radius:50%; font-size:18px; line-height:1;
+    cursor:pointer; flex-shrink:0;
+  }
+  .modal-close:hover{background:#E8EAED; color:var(--ink);}
+  .modal-body{padding:8px 32px 32px;}
+  .modal-section{margin-top:22px;}
+  .modal-section h4{font-size:12.5px; text-transform:uppercase; letter-spacing:.04em; color:var(--blue); font-weight:500; margin:0 0 10px;}
+  .modal-section ul{margin:0; padding:0; list-style:none;}
+  .modal-section li{
+    font-size:14px; color:var(--ink); line-height:1.6;
+    padding:8px 0 8px 18px; border-top:1px solid var(--border); position:relative;
+  }
+  .modal-section li:first-child{border-top:none;}
+  .modal-section li::before{content:"•"; position:absolute; left:2px; color:var(--blue);}
+
 </style>
 </head>
 <body>
@@ -325,50 +374,73 @@
       <div class="eyebrow">Career timeline</div>
       <h2>25 years, eight countries, one throughline: complex delivery, landed</h2>
     </div>
+    <p style="color:var(--ink-soft); font-size:13.5px; margin:-8px 0 20px;">Click any role for the detailed breakdown of what was actually built.</p>
     <div class="ledger">
-      <div class="ledger-row card">
+      <div class="ledger-row card" data-key="natwest" role="button" tabindex="0" aria-haspopup="dialog">
         <div class="dates mono">2023 — Now</div>
         <div><div class="org">NatWest Group</div><div class="role">Director / Programme Manager — Business &amp; Technology Transformation · London</div></div>
         <div class="metric">45 people · 5 teams</div>
+        <div class="expand-hint">View detailed breakdown →</div>
       </div>
-      <div class="ledger-row card">
+      <div class="ledger-row card" data-key="tcs" role="button" tabindex="0" aria-haspopup="dialog">
         <div class="dates mono">2022 — 2023</div>
         <div><div class="org">Tata Consultancy Services</div><div class="role">Project Manager / Release Train Manager — Customer Identification Management · NatWest</div></div>
         <div class="metric">RTM, CIM programme</div>
+        <div class="expand-hint">View detailed breakdown →</div>
       </div>
-      <div class="ledger-row card">
+      <div class="ledger-row card" data-key="scb" role="button" tabindex="0" aria-haspopup="dialog">
         <div class="dates mono">2015 — 2022</div>
         <div><div class="org">Standard Chartered Bank</div><div class="role">Executive Director / Programme Manager — Technology &amp; Innovation · Singapore</div></div>
         <div class="metric">$60M+ · 20M+ clients</div>
+        <div class="expand-hint">View detailed breakdown →</div>
       </div>
-      <div class="ledger-row card">
+      <div class="ledger-row card" data-key="dbs" role="button" tabindex="0" aria-haspopup="dialog">
         <div class="dates mono">2012 — 2015</div>
         <div><div class="org">DBS Bank</div><div class="role">Senior Business Analyst / Transformation Lead — Institutional Banking · Singapore</div></div>
         <div class="metric">$7.5M · 6 markets</div>
+        <div class="expand-hint">View detailed breakdown →</div>
       </div>
-      <div class="ledger-row card">
+      <div class="ledger-row card" data-key="citi" role="button" tabindex="0" aria-haspopup="dialog">
         <div class="dates mono">2010 — 2012</div>
         <div><div class="org">Citibank</div><div class="role">Transformation Functional Lead — Global Customer Repository · Singapore</div></div>
         <div class="metric">$30M · 26 countries</div>
+        <div class="expand-hint">View detailed breakdown →</div>
       </div>
-      <div class="ledger-row card">
+      <div class="ledger-row card" data-key="absa" role="button" tabindex="0" aria-haspopup="dialog">
         <div class="dates mono">2009 — 2010</div>
         <div><div class="org">ABSA Bank</div><div class="role">Business Analyst — Core-Banking Re-Platforming · Johannesburg</div></div>
         <div class="metric">Tanzania · Mozambique</div>
+        <div class="expand-hint">View detailed breakdown →</div>
       </div>
-      <div class="ledger-row card">
+      <div class="ledger-row card" data-key="nordics" role="button" tabindex="0" aria-haspopup="dialog">
         <div class="dates mono">2008 — 2009</div>
         <div><div class="org">Citibank — Nordics</div><div class="role">Business Analyst — Digital / eCommerce Banking · Stockholm &amp; India</div></div>
         <div class="metric">4 Nordic markets</div>
+        <div class="expand-hint">View detailed breakdown →</div>
       </div>
-      <div class="ledger-row card">
+      <div class="ledger-row card" data-key="early" role="button" tabindex="0" aria-haspopup="dialog">
         <div class="dates mono">2001 — 2008</div>
         <div><div class="org">Deutsche Bank · ICICI Bank · Standard Chartered (India) · Ajuba Solutions</div><div class="role">Early career — banking operations, international payments &amp; SWIFT fundamentals · India</div></div>
         <div class="metric">Foundational years</div>
+        <div class="expand-hint">View detailed breakdown →</div>
       </div>
     </div>
   </div>
 </section>
+
+<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalOrg">
+  <div class="modal-panel">
+    <div class="modal-head">
+      <div>
+        <div class="org" id="modalOrg"></div>
+        <div class="role" id="modalRole"></div>
+        <div class="period" id="modalPeriod"></div>
+      </div>
+      <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
 
 <section id="skills">
   <div class="wrap">
@@ -424,5 +496,200 @@
   </div>
 </footer>
 
+<script>
+const CAREER_DETAIL = {
+  natwest: {
+    org: "NatWest Group",
+    role: "Director / Programme Manager — Business & Technology Transformation",
+    period: "December 2023 – Present · London, United Kingdom",
+    sections: [
+      { h: "Strategic Servicing Platform (SBP)", items: [
+        "Programme Manager for NatWest's full Servicing Business Platform for Commercial & Institutional Banking — services all customer request types: Mandates, New &amp; Additional Cards, Payment Queries, Cheques, ePrivacy, Change of Business Details and more.",
+        "Own SDLC governance end-to-end integrating Agile and Waterfall, backlog value-slicing, release-train coordination and Build/QA alignment across 5 concurrent teams (~45 professionals)."
+      ]},
+      { h: "Mandates &amp; Platform-Wide AI Automation", items: [
+        "Building the strategic Mandates journey (add, remove, update, view signatories) as the pilot for a platform-wide AI automation strategy.",
+        "Inbound CRM email requests classified by Polaris — an LLM-powered (Claude Sonnet 4.5) solution — before a rules engine and orchestrator (Camunda FluxNova) drives the workflow.",
+        "Workflow: request ingestion → AI-powered OCR &amp; signature matching (AWS Textract) → Adobe e-sign → autonomous AI agent business validations → ID&amp;V/fraud/AML checks → human-in-the-loop review → downstream fulfilment.",
+        "Two-tier automation model: full straight-through processing for incorporated companies (Companies House lookup + signature verification); automation up to a final human check for unincorporated companies.",
+        "Target: automate 70,000+ requests/month across the platform and reduce FTE requirement by over 50%."
+      ]},
+      { h: "New &amp; Additional Cards Onboarding", items: [
+        "Led delivery of the commercial card onboarding and servicing journey for corporate, commercial and business banking clients.",
+        "Multi-channel request origination — EForms, Mobile Banking, Bankline — via Kafka topics (bulk) and real-time APIs.",
+        "Automated validation &amp; enrichment integrated from Equifax, Mytek/Hooyu, e-signature, AML, fraud and sanctions systems, orchestrated by a rules engine.",
+        "Downstream fulfilment into card issuance, CRM and customer notification (Hermes) systems."
+      ]},
+      { h: "PCF → AWS Hybrid Cloud Migration &amp; Platform Modernisation", items: [
+        "Directing end-to-end modernisation of the platform's Java, Spring Boot, Node.js/NPM and Camunda stack ahead of cloud migration.",
+        "Leading phased migration from Pivotal Cloud Foundry to AWS — VPC design, Amazon EKS as compute platform, journey-by-journey cutover.",
+        "Owns ingress/egress and security design across AWS-to-AWS and AWS-to-PCF boundaries."
+      ]},
+      { h: "Engineering &amp; Release Excellence", items: [
+        "Directed build of a complete test automation suite (Selenium, Gherkin/BDD) covering every servicing journey — testing shifted left, fail-fast, faster bug resolution.",
+        "Directed build of CI/CD pipelines in PCF using GitLab — reusable, fully tested templates; dedicated SIT, UAT (regression) and NFT environments.",
+        "Reduced release cycle time from 22 days to under 12 days, moving cadence from quarterly/monthly to fortnightly.",
+        "Introduced Blue-Green deployment to the bank for the first time — retiring weekend deployments for on-demand, zero-downtime releases; system availability held above 99%."
+      ]}
+    ]
+  },
+  tcs: {
+    org: "Tata Consultancy Services",
+    role: "Project Manager / Release Train Manager — Customer Identification Management (CIM)",
+    period: "February 2022 – December 2023 · NatWest Group, Commercial &amp; Institutional Banking",
+    sections: [
+      { h: "Customer Identification Management (CIM)", items: [
+        "Led delivery of the foundational CIM capability, establishing services to search, identify and consistently determine whether an individual or legal entity already held an existing relationship with the bank.",
+        "Established capability to create and manage unique Party IDs — not only for the primary legal entity, but also for associated and related parties (directors, beneficiaries, other individual/non-individual relationships).",
+        "Ensured Party IDs were correctly linked to corresponding Legal Entity IDs and Customer/Business Identification Numbers (CIN/BIN) across other source systems.",
+        "Supported creation of records within the strategic Party DB, consolidating customer and related-party information into a trusted, single source of identity.",
+        "Coordinated Business, Product, Architecture, Engineering, Data and downstream platform teams to define requirements and resolve cross-system dependencies.",
+        "Outcome: a reusable identification capability answering who a customer is, what other parties are associated with them, and how those parties relate to one another — the foundation for richer relationship and hierarchy capabilities."
+      ]}
+    ]
+  },
+  scb: {
+    org: "Standard Chartered Bank",
+    role: "Executive Director / Programme Manager — Technology &amp; Innovation",
+    period: "May 2015 – February 2022 · Singapore",
+    sections: [
+      { h: "Client Risk Assessment (CRA) Engine", items: [
+        "Directed modernisation of the bank's CRA Engine — the real-time system for assessing customer financial crime risk — working directly with the financial crime team.",
+        "Built deep working knowledge of risk variables: PEP status, sanctioned-party connections, AML indicators, source of wealth/business/income, age/country/date of incorporation, adverse media, SARs, NPAs, non-compliant transactions.",
+        "Recreated the CRA rules engine in Microsoft Excel using nested IF/THEN/ELSE and VLOOKUP logic to validate rules and outcomes with the financial crime team ahead of technology delivery."
+      ]},
+      { h: "RPDM — Related Party Data Management", items: [
+        "Led functional and delivery activities across RPDM, managing business requirements, data dependencies and alignment between business objectives and technology solutions for related-party data."
+      ]},
+      { h: "BPSI — Banking Platform Services &amp; Interfaces", items: [
+        "Directly managed the BPSI technical programme (3 DevOps, 2 developers, 1 principal engineer reporting directly), coordinating platform, infrastructure and interface dependencies across upstream and downstream systems."
+      ]},
+      { h: "ESG Initiative", items: [
+        "Delivered a time-critical ESG initiative supporting BES requirements, mobilising cross-functional stakeholders and driving execution against a stringent timeline."
+      ]},
+      { h: "Audit &amp; Regulatory Engagement", items: [
+        "Directed a global transformation portfolio exceeding USD 60 million supporting more than 20 million clients across FATCA/CRS, CRA, RPDM, BPSI and ESG.",
+        "Engaged directly with internal audit and external assurance reviewers — EY, KPMG and Navigant — and regulators MAS and RBI, evidencing delivery readiness and driving remediation of audit findings to closure."
+      ]}
+    ]
+  },
+  dbs: {
+    org: "DBS Bank",
+    role: "Senior Business Analyst / Transformation Lead — Institutional Banking",
+    period: "February 2012 – May 2015 · Singapore",
+    sections: [
+      { h: "OCRA — Credit Risk Rating Platform", items: [
+        "Built a full-fledged credit risk rating platform (OCRA) for DBS commercial and business banking customers, under the Risk Management Group (RMG) — a flagship success in 2015.",
+        "Platform interacts with external rating agencies — Fitch, Moody's and S&amp;P — to fetch customer financial details.",
+        "Performs Customer Risk Rating (CRR, scale 1–5) based on DBS's own customer risk rating model."
+      ]},
+      { h: "Facility Risk Rating &amp; Collateral Management", items: [
+        "Based on the facility/product a customer selects, OCRA performs Facility Risk Rating (FRR), with an inbuilt collateral management system to improve rating accuracy."
+      ]},
+      { h: "FIRB → AIRB Model Migration", items: [
+        "FRR was initially built on a FIRB (Foundation Internal Ratings-Based) model.",
+        "Over roughly a year, rewrote the entire specification to migrate FRR onto an AIRB (Advanced Internal Ratings-Based) model — updated parameters for computing LGD, PD, EAD, PE, EL and RWA.",
+        "Created mockups and wireframes, worked with development and testing teams through build, SIT and UAT, and drove business go-live.",
+        "Delivered across a USD 7.5 million MAS-aligned portfolio spanning six Asian markets."
+      ]}
+    ]
+  },
+  citi: {
+    org: "Citibank",
+    role: "Transformation Functional Lead — Global Customer Repository",
+    period: "October 2010 – February 2012 · Singapore",
+    sections: [
+      { h: "Global Customer Repository", items: [
+        "Led functional transformation for a USD 30 million Global Customer Repository programme across 26 countries.",
+        "Established a trusted golden-customer-record capability across businesses, products and platforms.",
+        "Drove alignment on customer identification, data attributes, business rules, data quality and integration requirements."
+      ]}
+    ]
+  },
+  absa: {
+    org: "ABSA Bank",
+    role: "Business Analyst — Banking Transformation",
+    period: "October 2009 – August 2010 · Johannesburg",
+    sections: [
+      { h: "Core-Banking Re-Platforming", items: [
+        "Supported Flexcube core-banking re-platforming and data migration across Tanzania and Mozambique.",
+        "Worked across Business and Technology teams through solution development, testing, UAT and implementation."
+      ]}
+    ]
+  },
+  nordics: {
+    org: "Citibank — Nordics",
+    role: "Business Analyst — Digital / eCommerce Banking, Cards &amp; Unsecured Lending",
+    period: "May 2008 – August 2009 · Stockholm, Sweden &amp; India",
+    sections: [
+      { h: "Digital / eCommerce Banking", items: [
+        "Business Analyst for Citi's Nordics eCommerce business — Credit Cards and Unsecured/Personal Loans across Sweden, Norway, Denmark and Finland.",
+        "Owned functional requirements for pre-login and authenticated digital journeys — e-banners, account landing pages, transaction summaries, up to three months of statement history.",
+        "Defined multi-factor authentication and data-security requirements; built wireframes and mock-ups; coordinated with an offshore development team through SIT.",
+        "Developed the UAT strategy and independently coordinated business checkout and go-live validation across all four Nordic markets, in local-language and English."
+      ]}
+    ]
+  },
+  early: {
+    org: "Deutsche Bank · ICICI Bank · Standard Chartered (India) · Ajuba Solutions",
+    role: "Early Career — Banking Operations &amp; International Payments",
+    period: "May 2001 – May 2008 · India",
+    sections: [
+      { h: "International Payments &amp; SWIFT Fundamentals", items: [
+        "Began banking career in branch operations at Standard Chartered Bank India, gaining hands-on experience processing international wire transfers via SWIFT — Nostro/Vostro account mechanics, International Clearing House (ICH) processes, and the precise beneficiary, BIC/SWIFT code, IBAN and intermediary-bank details required for cross-border payments to settle correctly.",
+        "Continued working directly with clients on international funds transfers through subsequent roles at ICICI Bank and Deutsche Bank, building front-to-back understanding of banking operations ahead of moving into business analysis and programme leadership."
+      ]}
+    ]
+  }
+};
+
+(function(){
+  const overlay = document.getElementById('modalOverlay');
+  const closeBtn = document.getElementById('modalClose');
+  let lastFocused = null;
+
+  function openModal(key){
+    const data = CAREER_DETAIL[key];
+    if(!data) return;
+    document.getElementById('modalOrg').innerHTML = data.org;
+    document.getElementById('modalRole').innerHTML = data.role;
+    document.getElementById('modalPeriod').innerHTML = data.period;
+    const body = document.getElementById('modalBody');
+    body.innerHTML = data.sections.map(function(s){
+      return '<div class="modal-section"><h4>' + s.h + '</h4><ul>' +
+        s.items.map(function(i){ return '<li>' + i + '</li>'; }).join('') +
+        '</ul></div>';
+    }).join('');
+    lastFocused = document.activeElement;
+    overlay.classList.add('open');
+    closeBtn.focus();
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal(){
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+    if(lastFocused) lastFocused.focus();
+  }
+
+  document.querySelectorAll('.ledger-row').forEach(function(row){
+    row.addEventListener('click', function(){ openModal(row.getAttribute('data-key')); });
+    row.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){
+        e.preventDefault();
+        openModal(row.getAttribute('data-key'));
+      }
+    });
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', function(e){
+    if(e.target === overlay) closeModal();
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
+  });
+})();
+</script>
 </body>
 </html>
