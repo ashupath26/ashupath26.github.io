@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ashutoshpathak / career</title>
+<style>
+  :root{
+    --bg:#0D1117; --paper:#161B22; --border:#30363D; --text:#C9D1D9; --text-bright:#F0F6FC;
+    --muted:#8B949E; --link:#58A6FF; --green:#3FB950; --purple:#BC8CFF; --orange:#F0883E; --max:880px;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif; font-size:16px; line-height:1.6;}
+  .mono{font-family:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;}
+  a{color:var(--link); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  :focus-visible{outline:2px solid var(--link); outline-offset:2px;}
+  .topbar{border-bottom:1px solid var(--border); background:var(--paper); padding:14px 0;}
+  .topbar .wrap{display:flex; align-items:center; gap:10px; font-size:14px; color:var(--muted);}
+  .topbar .repo{color:var(--text-bright); font-weight:600;}
+  .topbar svg{fill:var(--muted);}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 20px;}
+  .readme-frame{border:1px solid var(--border); border-radius:6px; margin:24px auto 60px; overflow:hidden;}
+  .readme-head{background:var(--paper); border-bottom:1px solid var(--border); padding:12px 18px; font-size:13px; color:var(--muted); display:flex; align-items:center; gap:8px;}
+  .readme-body{padding:32px 40px; background:var(--bg);}
+  @media (max-width:640px){ .readme-body{padding:24px 20px;} }
+  h1{font-size:27px; font-weight:600; color:var(--text-bright); padding-bottom:10px; border-bottom:1px solid var(--border); margin:0 0 6px;}
+  .role-line{color:var(--link); font-size:14px; margin:0 0 16px;}
+  h2{font-size:21px; font-weight:600; color:var(--text-bright); padding-bottom:8px; border-bottom:1px solid var(--border); margin:34px 0 16px;}
+  h3{font-size:16.5px; font-weight:600; color:var(--text-bright); margin:18px 0 8px;}
+  h4{font-size:14px; font-weight:600; color:var(--text-bright); margin:16px 0 6px;}
+  p{margin:0 0 14px; color:var(--text);}
+  .lede{color:var(--muted); font-size:14.5px;}
+  .badges{display:flex; flex-wrap:wrap; gap:6px; margin:12px 0 20px;}
+  .badge{display:inline-flex; align-items:center; font-family:ui-monospace,monospace; font-size:11.5px; font-weight:500; padding:3px 9px; border-radius:11px; background:var(--paper); border:1px solid var(--border); color:var(--text);}
+  .badge.b-blue{color:#58A6FF; border-color:#1F6FEB44;}
+  .badge.b-green{color:var(--green); border-color:#3FB95044;}
+  .badge.b-purple{color:var(--purple); border-color:#BC8CFF44;}
+  .badge.b-flag-delivered{color:var(--green); border-color:#3FB95044; font-weight:600;}
+  .badge.b-flag-progress{color:var(--orange); border-color:#F0883E44; font-weight:600;}
+  table{width:100%; border-collapse:collapse; margin:14px 0 24px; font-size:13.5px;}
+  th, td{border:1px solid var(--border); padding:8px 12px; text-align:left;}
+  th{background:var(--paper); color:var(--text-bright); font-weight:600;}
+  td.mono{color:var(--muted); font-size:12.5px;}
+  td.metric{color:var(--green); font-family:ui-monospace,monospace; font-size:12.5px; white-space:nowrap;}
+  pre{background:var(--paper); border:1px solid var(--border); border-radius:6px; padding:16px; overflow-x:auto; font-size:12px; line-height:1.7; font-family:ui-monospace,monospace; color:var(--text);}
+  code{font-family:ui-monospace,monospace; font-size:12.5px; background:var(--paper); border-radius:4px; padding:2px 5px; color:var(--orange);}
+  .comment{color:var(--muted);}
+  .arrow{color:var(--link);}
+  ul.check{list-style:none; padding:0; margin:0 0 14px;}
+  ul.check li{padding:4px 0 4px 26px; position:relative; font-size:14px; color:var(--text);}
+  ul.check li::before{content:"✔"; position:absolute; left:0; color:var(--green); font-size:12.5px;}
+  .stat-line{display:flex; flex-wrap:wrap; gap:20px; margin:16px 0 22px; font-family:ui-monospace,monospace; font-size:13px;}
+  .stat-line b{color:var(--text-bright); font-size:17px; display:block;}
+  .stat-line span{color:var(--muted); font-size:11.5px;}
+  details{border:1px solid var(--border); border-radius:6px; padding:10px 14px; margin:14px 0; background:var(--paper);}
+  summary{cursor:pointer; font-weight:600; color:var(--text-bright); font-size:14px;}
+  details p, details ul{margin-top:10px;}
+  .job{padding:18px 0; border-top:1px solid var(--border);}
+  .job:first-child{border-top:none;}
+  .job-head{display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px;}
+  .job-head .org{font-weight:600; color:var(--text-bright); font-size:15.5px;}
+  .job-head .dates{font-family:ui-monospace,monospace; font-size:12px; color:var(--green);}
+  .job .role{color:var(--muted); font-size:13px; margin-top:2px;}
+  .job .note{margin-top:8px; font-size:12.5px; color:var(--muted); border-left:2px solid var(--border); padding-left:10px;}
+  .skills-cols{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin:14px 0 24px;}
+  @media (max-width:640px){ .skills-cols{grid-template-columns:1fr;} }
+  .skills-cols h4{font-size:12.5px; color:var(--muted); text-transform:uppercase; letter-spacing:.04em; margin:0 0 8px;}
+  .btn{display:inline-flex; align-items:center; gap:6px; font-family:ui-monospace,monospace; font-size:12.5px; border:1px solid var(--green); color:var(--green); background:transparent; padding:6px 12px; border-radius:6px; text-decoration:none; cursor:pointer;}
+  .btn:hover{background:rgba(63,185,80,0.1); text-decoration:none;}
+  .btn-row{display:flex; gap:10px; flex-wrap:wrap; margin:14px 0;}
+  .reveal-line{margin:10px 0; font-size:13.5px;}
+  footer{padding:36px 0 60px; text-align:center;}
+  footer .note{color:var(--muted); font-size:12.5px;}
+  footer .style-switch{margin-top:10px; font-family:ui-monospace,monospace; font-size:11.5px; color:var(--muted);}
+  footer .style-switch .current{color:var(--green);}
+  @media (prefers-reduced-motion: reduce){ *{transition:none !important;} }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <svg height="18" width="18" viewBox="0 0 16 16"><path d="M8 0c4.42 0 8 3.58 8 8a8.01 8.01 0 0 1-5.47 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg>
+    <span class="repo">ashutoshpathak</span><span>/</span><span>career</span>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="readme-frame">
+    <div class="readme-head">
+      <svg height="14" width="14" viewBox="0 0 16 16" fill="currentColor"><path d="M0 1.75C0 .784.784 0 1.75 0h8.5C11.216 0 12 .784 12 1.75v12.5A1.75 1.75 0 0 1 10.25 16h-8.5A1.75 1.75 0 0 1 0 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25V1.75a.25.25 0 0 0-.25-.25Z"></path></svg>
+      README.md
+    </div>
+    <div class="readme-body">
+
+      <h1>Ashutosh Pathak</h1>
+      <p class="role-line">Programme &amp; Delivery Director, Financial Services</p>
+      <p class="lede">Programme and delivery director with 25 years in banking technology across NatWest, Standard Chartered, DBS and Citi, spanning eight countries and four continents.</p>
+
+      <div class="badges">
+        <span class="badge b-blue">London, UK</span>
+        <span class="badge b-green">Open to Director / Programme Manager roles</span>
+        <span class="badge b-purple">Financial Services</span>
+      </div>
+
+      <div class="stat-line">
+        <div><b>25+</b><span>years delivery</span></div>
+        <div><b>$60M+</b><span>portfolio at Standard Chartered</span></div>
+        <div><b>45</b><span>people, 5 teams</span></div>
+        <div><b>22→12</b><span>days: release cycle, delivered</span></div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn" id="revealBtn" type="button">$ reveal --contact</button>
+        <a class="btn" href="Ashutosh_Pathak_Resume.pdf" target="_blank" rel="noopener">⬇ resume.pdf</a>
+        <a class="btn" href="https://www.linkedin.com/in/ashutosh-pathak-0276bba" target="_blank" rel="noopener">🔗 linkedin</a>
+      </div>
+      <div class="reveal-line" id="revealBox" style="display:none;"></div>
+
+      <h2>Selected outcomes</h2>
+      <p class="lede">Delivered work and current work are tagged separately.</p>
+
+      <ul class="check">
+        <li><span class="badge b-flag-delivered">delivered</span> <b>Engineering velocity</b>: release cycle time cut from <code>22 days</code> to <code>&lt;12 days</code>, quarterly to fortnightly, via reusable GitLab CI/CD pipeline templates in PCF with dedicated SIT/UAT(regression)/NFT environments.</li>
+        <li><span class="badge b-flag-delivered">delivered, a first for the bank</span> <b>Zero-downtime deployment</b>: Blue-Green deployment retired the weekend release window. Availability held above <code>99%</code> throughout.</li>
+        <li><span class="badge b-flag-delivered">delivered</span> <b>Regulatory</b>: audit findings closed with internal audit, EY, KPMG, Navigant, MAS and RBI across a <code>$60M+</code> portfolio.</li>
+        <li><span class="badge b-flag-delivered">delivered</span> <b>Delivery governance</b>: SDLC governance (Agile + Waterfall), RAID ownership and release-train coordination across 5 concurrent teams, 45 professionals.</li>
+        <li><span class="badge b-flag-delivered">delivered</span> <b>Quality</b>: manual regression replaced by a full Selenium/Gherkin-BDD suite across every servicing journey.</li>
+        <li><span class="badge b-flag-progress">in-progress</span> <b>Platform modernisation</b>: phased migration from an on-premises PaaS environment to AWS, journey by journey.</li>
+        <li><span class="badge b-flag-progress">in-progress, migrating</span> <b>Mandates servicing journey</b>: already live, processed largely manually today at <code>~730 requests/day</code> (<code>6,000 to 7,000</code> over two weeks), supporting a team of <code>~70 people</code>. Migrating onto a new AI-enabled platform, not yet live in production. Platform-wide target: <code>70,000+ requests/month</code>, <code>50%+</code> FTE reduction.</li>
+      </ul>
+
+      <h2>Signature build, in progress</h2>
+      <h3>Mandates: migrating a live, high-volume journey onto an AI-enabled platform</h3>
+      <p class="lede">Customers add, remove, update or view signatories on business accounts. This journey is already live and processed largely manually today. The migration now underway moves it onto a new platform where each request routes through an AI-enabled workflow.</p>
+
+      <div class="stat-line">
+        <div><b>~730/day</b><span>manual volume today</span></div>
+        <div><b>6K to 7K</b><span>over a two-week period</span></div>
+        <div><b>~70</b><span>people supporting it today</span></div>
+      </div>
+
+<pre><span class="comment"># servicing-journey.workflow (migration in progress, not yet in production)</span>
+Request received
+  <span class="arrow">→</span> LLM-based classification
+  <span class="arrow">→</span> Workflow orchestration
+  <span class="arrow">→</span> OCR + signature match
+  <span class="arrow">→</span> E-sign confirmation
+  <span class="arrow">→</span> Automated business validations
+  <span class="arrow">→</span> ID&amp;V / fraud / AML checks
+  <span class="arrow">→</span> Human review (HITL)
+  <span class="arrow">→</span> Downstream fulfilment</pre>
+
+      <details>
+        <summary>Two-tier automation model, once scaled (target)</summary>
+        <p><b>Incorporated companies:</b> full straight-through processing based on signature verification plus automated Companies House lookup.</p>
+        <p><b>Unincorporated companies:</b> full automation up to a final human-in-the-loop check.</p>
+        <p><code>Target: 70,000+ requests/month</code> once scaled across the platform, <code>target: 50%+</code> FTE reduction. Not yet achieved.</p>
+      </details>
+
+      <h2>Experience</h2>
+
+      <div class="job">
+        <div class="job-head"><span class="org">NatWest Group</span><span class="dates mono">Dec 2023 to present · London</span></div>
+        <div class="role">Director / Programme Manager, Business &amp; Technology Transformation</div>
+        <ul class="check">
+          <li>Programme manager for NatWest's full C&amp;I Banking servicing platform, covering Mandates, Cards, Payment Queries, Cheques, ePrivacy and Change of Business Details, leading 5 concurrent Agile teams (~45 professionals).</li>
+          <li>Cut release cycle time from 22 days to under 12 via GitLab CI/CD and the bank's first Blue-Green deployment.</li>
+          <li>Leading migration of Mandates, an already-live, high-volume servicing journey processing around 730 requests a day (roughly 6,000 to 7,000 over a two-week period), currently supported by a team of around 70 people, onto a new AI-enabled platform. Not yet live in production.</li>
+          <li>Running the phased AWS migration, cutting over one journey at a time.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head"><span class="org">Tata Consultancy Services</span><span class="dates mono">Feb 2022 to Dec 2023</span></div>
+        <div class="role">Project Manager / Release Train Manager, CIM (client: NatWest)</div>
+        <div class="note">Relocated from Singapore to the UK in 2022. Joined NatWest through this contract before moving into a permanent Director role.</div>
+        <ul class="check">
+          <li>Delivered the foundational Customer Identification Management capability, creating unique Party IDs for primary and related parties, linked to Legal Entity IDs and source systems.</li>
+          <li>Moved the bank toward a consistent enterprise approach for identifying customers and related parties, laying the foundation for later relationship and hierarchy capabilities.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head"><span class="org">Standard Chartered Bank</span><span class="dates mono">May 2015 to Feb 2022 · Singapore</span></div>
+        <div class="role">Executive Director / Programme Manager, Technology &amp; Innovation</div>
+        <ul class="check">
+          <li>Directed a <code>$60M+</code> portfolio (20M+ clients) across CRA, RPDM, BPSI and an ESG initiative.</li>
+          <li>Modernised the CRA financial-crime risk engine, covering PEP, sanctions, AML and adverse media.</li>
+          <li>Closed audit and regulatory findings with internal audit, EY, KPMG, Navigant, MAS and RBI.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head"><span class="org">DBS Bank</span><span class="dates mono">Feb 2012 to May 2015 · Singapore</span></div>
+        <div class="role">Senior Business Analyst / Transformation Lead, Institutional Banking</div>
+        <ul class="check">
+          <li>Built and specified <b>OSCA</b>, a credit rating platform for DBS's Bank Model (rating bank and financial-institution counterparties) under the Risk Management Group, integrating a separate computation engine (<b>CSM</b>, on Tibco BusinessWorks), financial-statement spreading via <b>MRA</b>, and external agency ratings (Fitch, Moody's, S&amp;P) via <b>GCS</b>.</li>
+          <li>Personally authored the detailed UI and workflow spec (RM-facing mockups, v3.0) for a seven-tab rating workflow: pre-processing, Initial CRR financial/non-financial (25 qualitative factors, 5 mandatory), Early Warning Signals, Specific Default Indicators, Supported CRR with government/parent support-matrix logic, and final Adjusted CRR with RM override commentary.</li>
+          <li>Rewrote the Facility Risk Rating spec over ~1 year, migrating FIRB to AIRB (LGD, PD, EAD, RWA).</li>
+          <li>Drove build, SIT, UAT and go-live across a <code>$7.5M</code> MAS-aligned portfolio, six Asian markets.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head"><span class="org">Citibank</span><span class="dates mono">Oct 2010 to Feb 2012 · Singapore</span></div>
+        <div class="role">Transformation Functional Lead, Global Customer Repository</div>
+        <ul class="check">
+          <li>Led functional transformation for a <code>$30M</code> programme across 26 countries.</li>
+          <li>Gave the bank a single, trusted view of each customer across businesses and products, replacing fragmented records.</li>
+          <li>Supported downstream KYC and regulatory reporting through consistent customer identification standards.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head"><span class="org">ABSA, Citibank (Nordics), earlier career</span><span class="dates mono">May 2001 to Aug 2010</span></div>
+        <div class="role">Business Analyst roles, in Johannesburg, Stockholm and India</div>
+        <ul class="check">
+          <li>ABSA Bank: Flexcube core-banking re-platforming, Tanzania and Mozambique.</li>
+          <li>Citibank Nordics: digital banking BA, four Nordic markets.</li>
+          <li>Deutsche Bank, ICICI Bank, Standard Chartered India, Ajuba Solutions: branch banking, SWIFT wire transfer operations.</li>
+        </ul>
+      </div>
+
+      <h2>Education and credentials</h2>
+      <table>
+        <thead><tr><th>Type</th><th>Detail</th></tr></thead>
+        <tbody>
+          <tr><td>Education</td><td>Bachelor of Engineering, University of Mumbai</td></tr>
+          <tr><td>Certification</td><td>Certified ScrumMaster (CSM), Scrum Alliance, 2018</td></tr>
+          <tr><td>In progress</td><td>AWS Certified AI Practitioner, expected within a few months</td></tr>
+          <tr><td>In progress</td><td>AWS Certified Solutions Architect, Associate, expected within a few months</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Skills</h2>
+      <div class="skills-cols">
+        <div><h4>Programme &amp; delivery</h4><div class="badges">
+          <span class="badge">Programme governance</span><span class="badge">RAID</span><span class="badge">Release train mgmt</span><span class="badge">Agile</span><span class="badge">Waterfall</span>
+        </div></div>
+        <div><h4>Technology &amp; AI</h4><div class="badges">
+          <span class="badge b-blue">LLM deployment</span><span class="badge b-blue">BPMN orchestration</span><span class="badge b-blue">AWS migration</span><span class="badge b-blue">CI/CD, GitLab</span>
+        </div></div>
+        <div><h4>Governance</h4><div class="badges">
+          <span class="badge b-purple">Exec reporting</span><span class="badge b-purple">Audit engagement</span><span class="badge b-purple">Remediation</span>
+        </div></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="note">Ashutosh Pathak, based in London, United Kingdom. Available for Director, Programme Manager and Delivery Manager roles in financial services and regulated technology environments.</div>
+  <div class="style-switch">Also viewable as: <a href="index.html">Ledger style</a> · <a href="material-style.html">Material style</a> · <span class="current">README (this page)</span></div>
+</footer>
+
+<script>
+  (function(){
+    var encEmail = "YXNoLmFzaHV0b3NocGF0aGFrQGdtYWlsLmNvbQ==";
+    var encPhone = "KzQ0IDc3NjUgNzIwMzcy";
+    document.getElementById('revealBtn').addEventListener('click', function(){
+      var email = atob(encEmail);
+      var phone = atob(encPhone);
+      var box = document.getElementById('revealBox');
+      box.innerHTML = '📫 <a href="mailto:' + email + '">' + email + '</a> &nbsp;·&nbsp; ☎ ' +
+        '<a href="tel:' + phone.replace(/\s/g,'') + '">' + phone + '</a>';
+      box.style.display = 'block';
+      this.style.display = 'none';
+    });
+  })();
+</script>
+
+</body>
+</html>
