@@ -9,219 +9,117 @@
 <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#FAFAFA;
-    --surface:#FFFFFF;
-    --ink:#1F1F1F;
-    --ink-soft:#5F6368;
-    --blue:#4285F4;
-    --green:#34A853;
-    --yellow:#FBBC04;
-    --red:#EA4335;
-    --border:#E8EAED;
-    --max:1120px;
-    --r:12px;
+    --bg:#FAFAFA; --surface:#FFFFFF; --ink:#1F1F1F; --ink-soft:#5F6368;
+    --blue:#4285F4; --green:#34A853; --yellow:#FBBC04; --red:#EA4335;
+    --border:#E8EAED; --max:1120px; --r:12px;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--bg);
-    color:var(--ink);
-    font-family:'Roboto', 'Google Sans', sans-serif;
-    line-height:1.65;
-    -webkit-font-smoothing:antialiased;
-  }
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:'Roboto','Google Sans',sans-serif; line-height:1.65; -webkit-font-smoothing:antialiased;}
   a{color:var(--blue); text-decoration:none;}
   a:hover{text-decoration:underline;}
   .wrap{max-width:var(--max); margin:0 auto; padding:0 28px;}
   .mono{font-family:'Roboto Mono', monospace;}
   :focus-visible{outline:2px solid var(--blue); outline-offset:3px; border-radius:4px;}
   h1,h2,h3{font-family:'Google Sans','Roboto',sans-serif; font-weight:500; margin:0; color:var(--ink);}
+  .eyebrow{font-family:'Roboto Mono', monospace; text-transform:uppercase; letter-spacing:0.08em; font-size:11.5px; color:var(--blue); font-weight:500;}
+  .card{background:var(--surface); border-radius:var(--r); border:1px solid var(--border); box-shadow:0 1px 2px rgba(60,64,67,0.08), 0 1px 3px rgba(60,64,67,0.06);}
+  .btn{display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:500; border:1px solid var(--blue); color:var(--blue); background:#fff; padding:8px 16px; border-radius:20px; text-decoration:none;}
+  .btn:hover{background:#E8F0FE; text-decoration:none;}
 
-  .eyebrow{
-    font-family:'Roboto Mono', monospace;
-    text-transform:uppercase;
-    letter-spacing:0.08em;
-    font-size:11.5px;
-    color:var(--blue);
-    font-weight:500;
-  }
-
-  .card{
-    background:var(--surface);
-    border-radius:var(--r);
-    border:1px solid var(--border);
-    box-shadow: 0 1px 2px rgba(60,64,67,0.08), 0 1px 3px rgba(60,64,67,0.06);
-  }
-
-  /* HERO */
-  header.hero{padding:80px 0 56px;}
-  .hero h1{
-    font-size:clamp(36px, 5.6vw, 56px);
-    letter-spacing:-0.01em;
-  }
-  .hero .role{
-    margin-top:16px;
-    font-size:clamp(16px, 2vw, 19px);
-    color:var(--ink-soft);
-    max-width:660px;
-    font-weight:300;
-  }
+  header.hero{padding:72px 0 48px;}
+  .hero h1{font-size:clamp(34px, 5.2vw, 52px); letter-spacing:-0.01em;}
+  .hero .role{margin-top:14px; font-size:clamp(15px, 1.9vw, 18px); color:var(--ink-soft); max-width:660px; font-weight:300;}
   .hero .role strong{color:var(--ink); font-weight:500;}
-  .contact-line{
-    margin-top:22px;
-    font-size:14px;
-    color:var(--ink-soft);
-    display:flex; flex-wrap:wrap; gap:6px 16px;
-  }
+  .contact-line{margin-top:20px; font-size:13.5px; color:var(--ink-soft); display:flex; flex-wrap:wrap; align-items:center; gap:6px 14px;}
+  .btn-row{margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;}
 
-  .stat-strip{
-    margin-top:44px;
-    display:grid;
-    grid-template-columns:repeat(4, 1fr);
-    gap:14px;
-  }
-  .stat{
-    padding:20px;
-  }
-  .stat .num{
-    font-family:'Google Sans','Roboto',sans-serif;
-    font-weight:500;
-    font-size:clamp(22px, 3vw, 30px);
-    color:var(--blue);
-  }
+  .stat-strip{margin-top:38px; display:grid; grid-template-columns:repeat(4, 1fr); gap:12px;}
+  .stat{padding:18px;}
+  .stat .num{font-weight:500; font-size:clamp(20px, 2.8vw, 28px); color:var(--blue);}
   .stat:nth-child(2) .num{color:var(--green);}
-  .stat:nth-child(3) .num{color:var(--yellow);}
-  .stat:nth-child(4) .num{color:var(--red);}
-  .stat .label{margin-top:6px; font-size:12.5px; color:var(--ink-soft);}
-  @media (max-width: 720px){ .stat-strip{grid-template-columns:repeat(2, 1fr);} }
+  .stat:nth-child(3) .num{color:#1a73e8;}
+  .stat:nth-child(4) .num{color:var(--green);}
+  .stat .label{margin-top:6px; font-size:12px; color:var(--ink-soft);}
+  @media (max-width:720px){ .stat-strip{grid-template-columns:repeat(2,1fr);} }
 
-  section{padding:56px 0;}
-  .section-head{margin-bottom:32px;}
-  .section-head h2{font-size:clamp(24px, 3vw, 32px);}
-  .section-head p{color:var(--ink-soft); max-width:600px; margin-top:8px; font-size:14.5px;}
+  section{padding:52px 0;}
+  .section-head{margin-bottom:28px;}
+  .section-head h2{font-size:clamp(22px,2.8vw,30px);}
+  .section-head p{color:var(--ink-soft); max-width:640px; margin-top:8px; font-size:14px;}
 
-  .value-grid{
-    display:grid;
-    grid-template-columns:repeat(2, 1fr);
-    gap:16px;
-  }
-  .value-card{padding:26px; }
-  .value-card.wide{grid-column:1 / -1;}
-  .value-card .tag{
-    font-family:'Roboto Mono', monospace;
-    font-size:11px; letter-spacing:.06em; text-transform:uppercase;
-    color:var(--blue); font-weight:500;
-  }
-  .value-card h3{font-size:19px; margin-top:8px; font-weight:500;}
-  .value-card p{color:var(--ink-soft); font-size:14px; margin-top:8px;}
-  .proof{
-    margin-top:12px; display:inline-block;
-    font-family:'Roboto Mono', monospace; font-size:12px;
-    background:#E8F0FE; color:#1967D2;
-    padding:5px 10px; border-radius:6px;
-  }
-  .proof-row{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;}
-  .delta-stat{margin-top:14px; display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; font-family:'Roboto Mono', monospace;}
-  .delta-stat .from{font-size:16px; color:var(--ink-soft); text-decoration:line-through;}
-  .delta-stat .to{font-size:22px; color:var(--green); font-weight:500;}
-  .delta-stat .ctx{font-family:'Roboto',sans-serif; font-size:13px; color:var(--ink-soft); width:100%;}
-  @media (max-width: 720px){ .value-grid{grid-template-columns:1fr;} }
+  .tier-flag{display:inline-block; font-size:10.5px; text-transform:uppercase; letter-spacing:.04em; font-weight:500; padding:3px 9px; border-radius:10px; margin-bottom:10px;}
+  .tier-flag.delivered{background:#E6F4EA; color:#188038;}
+  .tier-flag.progress{background:#FEF7E0; color:#B06000;}
 
-  .case{padding:32px;}
-  .case-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:30px;}
-  @media (max-width: 820px){ .case-grid{grid-template-columns:1fr;} }
-  .case h3{font-size:22px;}
-  .case .lede{color:var(--ink-soft); font-size:14px; margin-top:8px;}
-  .flow{margin-top:18px; font-family:'Roboto Mono', monospace; font-size:12px; display:flex; flex-wrap:wrap; align-items:center; gap:6px;}
-  .flow .step{background:#F1F3F4; border:1px solid var(--border); padding:6px 10px; border-radius:16px;}
+  .value-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:14px;}
+  .value-card{padding:24px;}
+  .value-card.wide{grid-column:1/-1;}
+  .value-card .tag{font-family:'Roboto Mono',monospace; font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:var(--blue); font-weight:500;}
+  .value-card h3{font-size:18px; margin-top:8px; font-weight:500;}
+  .value-card p{color:var(--ink-soft); font-size:13.5px; margin-top:8px;}
+  .proof{margin-top:10px; display:inline-block; font-size:12px; background:#E8F0FE; color:#1967D2; padding:5px 10px; border-radius:6px;}
+  .proof-row{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;}
+  .delta-stat{margin-top:14px; display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; font-family:'Roboto Mono',monospace;}
+  .delta-stat .from{font-size:15px; color:var(--ink-soft); text-decoration:line-through;}
+  .delta-stat .to{font-size:20px; color:var(--green); font-weight:500;}
+  .delta-stat .ctx{font-family:'Roboto',sans-serif; font-size:12.5px; color:var(--ink-soft); width:100%;}
+  @media (max-width:720px){ .value-grid{grid-template-columns:1fr;} }
+
+  .job{padding:24px 0; border-top:1px solid var(--border);}
+  .job:first-child{border-top:none; padding-top:0;}
+  .job-head{display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px;}
+  .job-head .org{font-family:'Google Sans','Roboto',sans-serif; font-weight:500; font-size:18px;}
+  .job-head .dates{font-family:'Roboto Mono',monospace; font-size:12px; color:var(--blue); white-space:nowrap;}
+  .job .role{color:var(--ink-soft); font-size:13px; margin-top:2px;}
+  .job .note{margin-top:10px; font-size:13px; color:var(--ink-soft); font-style:italic; border-left:2px solid var(--border); padding-left:10px;}
+  .job ul{margin:12px 0 0; padding:0 0 0 18px;}
+  .job li{font-size:13.5px; color:var(--ink); margin-bottom:6px; line-height:1.55;}
+  .job li b{color:var(--blue); font-weight:500;}
+
+  .case{padding:30px;}
+  .case-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:28px;}
+  @media (max-width:820px){ .case-grid{grid-template-columns:1fr;} }
+  .case h3{font-size:20px;}
+  .case .lede{color:var(--ink-soft); font-size:13.5px; margin-top:8px;}
+  .flow{margin-top:16px; font-family:'Roboto Mono',monospace; font-size:11.5px; display:flex; flex-wrap:wrap; align-items:center; gap:6px;}
+  .flow .step{background:#F1F3F4; border:1px solid var(--border); padding:5px 9px; border-radius:14px;}
   .flow .arrow{color:var(--blue);}
-  .tiermodel{background:#F8F9FA; border:1px solid var(--border); border-radius:var(--r); padding:22px;}
-  .tiermodel h4{font-family:'Roboto Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--blue); margin-bottom:12px;}
-  .tier{padding:10px 0; border-top:1px solid var(--border);}
+  .tiermodel{background:#F8F9FA; border:1px solid var(--border); border-radius:var(--r); padding:20px;}
+  .tiermodel h4{font-family:'Roboto Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.05em; color:var(--blue); margin-bottom:10px;}
+  .tier{padding:9px 0; border-top:1px solid var(--border);}
   .tier:first-of-type{border-top:none;}
-  .tier .t{font-weight:500; font-size:14px;}
-  .tier .d{color:var(--ink-soft); font-size:12.5px; margin-top:3px;}
-  .bigstat{margin-top:16px; font-family:'Google Sans','Roboto',sans-serif; font-weight:500; font-size:26px; color:var(--green);}
-  .bigstat span{display:block; font-size:11.5px; color:var(--ink-soft); font-family:'Roboto',sans-serif; font-weight:400; margin-top:2px;}
+  .tier .t{font-weight:500; font-size:13px;}
+  .tier .d{color:var(--ink-soft); font-size:12px; margin-top:3px;}
+  .bigstat{margin-top:14px; font-weight:500; font-size:22px; color:var(--green);}
+  .bigstat span{display:block; font-size:11px; color:var(--ink-soft); font-family:'Roboto',sans-serif; font-weight:400; margin-top:2px;}
 
-  .ledger{display:flex; flex-direction:column; gap:12px;}
-  .ledger-row{
-    display:grid; grid-template-columns:110px 1fr auto; gap:16px;
-    padding:18px 20px; align-items:center;
-  }
-  .ledger-row .dates{font-family:'Roboto Mono',monospace; font-size:12px; color:var(--blue);}
-  .ledger-row .org{font-weight:500; font-size:15px;}
-  .ledger-row .role{color:var(--ink-soft); font-size:13px; margin-top:2px;}
-  .ledger-row .metric{font-family:'Roboto Mono',monospace; font-size:13px; color:var(--green); text-align:right; white-space:nowrap;}
-  @media (max-width: 640px){ .ledger-row{grid-template-columns:1fr; gap:4px;} .ledger-row .metric{text-align:left;} }
+  .edu-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  .edu-card{padding:22px;}
+  .edu-card h4{font-family:'Roboto Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.05em; color:var(--blue); margin:0 0 10px;}
+  .edu-card ul{margin:0; padding:0; list-style:none;}
+  .edu-card li{font-size:13.5px; padding:6px 0; border-top:1px solid var(--border);}
+  .edu-card li:first-child{border-top:none;}
+  .edu-card li .sub{display:block; color:var(--ink-soft); font-size:12px; margin-top:2px;}
+  @media (max-width:640px){ .edu-grid{grid-template-columns:1fr;} }
 
-  .skill-cols{display:grid; grid-template-columns:repeat(3, 1fr); gap:20px;}
-  @media (max-width: 820px){ .skill-cols{grid-template-columns:1fr 1fr;} }
-  @media (max-width: 560px){ .skill-cols{grid-template-columns:1fr;} }
-  .skill-card{padding:22px;}
-  .skill-card h4{font-family:'Roboto Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--blue); margin-bottom:10px;}
+  .skill-cols{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+  @media (max-width:820px){ .skill-cols{grid-template-columns:1fr 1fr;} }
+  @media (max-width:560px){ .skill-cols{grid-template-columns:1fr;} }
+  .skill-card{padding:20px;}
+  .skill-card h4{font-family:'Roboto Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.05em; color:var(--blue); margin-bottom:10px;}
   .skill-card ul{list-style:none; margin:0; padding:0;}
-  .skill-card li{font-size:13.5px; padding:6px 0; border-top:1px solid var(--border);}
+  .skill-card li{font-size:13px; padding:6px 0; border-top:1px solid var(--border);}
   .skill-card li:first-child{border-top:none;}
 
-  footer{padding:56px 0 70px;}
-  footer .cta{display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:20px;}
-  footer h2{font-size:clamp(22px,3vw,28px); max-width:520px; font-weight:400;}
-  .note{margin-top:30px; font-size:12px; color:var(--ink-soft); border-top:1px solid var(--border); padding-top:16px;}
-  .visit-counter{margin-top:12px; display:flex; align-items:center; gap:8px; font-size:11.5px; color:var(--ink-soft);}
-  .visit-counter img{height:18px;}
+  footer{padding:48px 0 64px;}
+  footer .cta{display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:18px;}
+  footer h2{font-size:clamp(20px,2.6vw,26px); font-weight:400; max-width:480px;}
+  .note-strip{margin-top:26px; font-size:12px; color:var(--ink-soft); border-top:1px solid var(--border); padding-top:14px;}
+  .visit-counter{margin-top:10px; display:flex; align-items:center; gap:8px; font-size:11px; color:var(--ink-soft);}
+  .visit-counter img{height:16px;}
 
   @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} *{transition:none !important;} }
-  /* INTERACTIVE LEDGER */
-  .ledger-row{cursor:pointer; transition:box-shadow 0.15s ease, transform 0.1s ease;}
-  .ledger-row:hover, .ledger-row:focus-visible{
-    box-shadow: 0 2px 6px rgba(60,64,67,0.15), 0 4px 10px rgba(60,64,67,0.1);
-  }
-  .ledger-row .expand-hint{
-    grid-column:1 / -1;
-    font-size:12px; color:var(--blue); font-weight:500;
-    margin-top:4px;
-  }
-
-  /* MODAL */
-  .modal-overlay{
-    position:fixed; inset:0;
-    background:rgba(32,33,36,0.6);
-    display:none; align-items:flex-start; justify-content:center;
-    padding:6vh 20px; z-index:100; overflow-y:auto;
-  }
-  .modal-overlay.open{display:flex;}
-  .modal-panel{
-    background:#fff; border-radius:16px;
-    max-width:760px; width:100%; margin-bottom:6vh;
-    box-shadow:0 8px 28px rgba(0,0,0,0.28);
-  }
-  .modal-head{
-    padding:28px 32px 20px; border-bottom:1px solid var(--border);
-    display:flex; justify-content:space-between; align-items:flex-start; gap:16px;
-    position:sticky; top:0; background:#fff; border-radius:16px 16px 0 0;
-  }
-  .modal-head .org{font-family:'Google Sans','Roboto',sans-serif; font-weight:500; font-size:23px; color:var(--ink);}
-  .modal-head .role{color:var(--ink-soft); font-size:14px; margin-top:6px;}
-  .modal-head .period{color:var(--blue); font-size:12.5px; margin-top:8px; font-weight:500;}
-  .modal-close{
-    background:#F1F3F4; border:none; color:var(--ink-soft);
-    width:34px; height:34px; border-radius:50%; font-size:18px; line-height:1;
-    cursor:pointer; flex-shrink:0;
-  }
-  .modal-close:hover{background:#E8EAED; color:var(--ink);}
-  .modal-body{padding:8px 32px 32px;}
-  .modal-section{margin-top:22px;}
-  .modal-section h4{font-size:12.5px; text-transform:uppercase; letter-spacing:.04em; color:var(--blue); font-weight:500; margin:0 0 10px;}
-  .modal-section ul{margin:0; padding:0; list-style:none;}
-  .modal-section li{
-    font-size:14px; color:var(--ink); line-height:1.6;
-    padding:8px 0 8px 18px; border-top:1px solid var(--border); position:relative;
-  }
-  .modal-section li:first-child{border-top:none;}
-  .modal-section li::before{content:"•"; position:absolute; left:2px; color:var(--blue);}
-
 </style>
 </head>
 <body>
@@ -233,19 +131,22 @@
     <p class="role">
       Director-level Programme &amp; Delivery Manager with <strong>25+ years</strong> leading enterprise
       technology and business transformation across <strong>NatWest, Standard Chartered, DBS and Citi</strong> —
-      spanning eight countries, currently directing a live hybrid cloud migration and a platform-wide
-      AI automation strategy at NatWest.
+      eight countries, four continents.
     </p>
     <div class="contact-line">
       <span>London, United Kingdom</span><span>·</span>
-      <a href="tel:+447765720372">+44 7765 720372</a><span>·</span>
-      <a href="mailto:ash.ashutoshpathak@gmail.com">ash.ashutoshpathak@gmail.com</a>
+      <span id="contactEmail"></span><span>·</span>
+      <span id="contactPhone"></span>
+    </div>
+    <div class="btn-row">
+      <a class="btn" href="Ashutosh_Pathak_Resume.pdf" target="_blank" rel="noopener">↓ Download resume (PDF)</a>
+      <a class="btn" href="#" id="linkedinLink" target="_blank" rel="noopener">LinkedIn ↗</a>
     </div>
     <div class="stat-strip">
       <div class="stat card"><div class="num">25+</div><div class="label">Years in banking &amp; technology delivery</div></div>
-      <div class="stat card"><div class="num">$90M+</div><div class="label">Transformation portfolios directed</div></div>
+      <div class="stat card"><div class="num">$97.5M+</div><div class="label">Delivered transformation portfolios (SCB, Citi, DBS)</div></div>
       <div class="stat card"><div class="num">45</div><div class="label">Professionals led across 5 concurrent teams</div></div>
-      <div class="stat card"><div class="num">70K+/mo</div><div class="label">Service requests targeted for AI automation</div></div>
+      <div class="stat card"><div class="num">22→12</div><div class="label">Days: release cycle time, cut and delivered</div></div>
     </div>
   </div>
 </header>
@@ -254,73 +155,121 @@
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Where the value shows up</div>
-      <h2>Mapped to the outcomes that move a leadership scorecard</h2>
-      <p>Every engagement below is framed around the business result it was built to move.</p>
+      <h2>Delivered outcomes first — in-flight work labelled honestly</h2>
+      <p>Everything marked <b style="color:#188038;">Delivered</b> is closed and measured. Everything marked <b style="color:#B06000;">In Progress / Target</b> is real, current work with a stated goal — not yet a result.</p>
     </div>
     <div class="value-grid">
+      <div class="value-card card wide">
+        <span class="tier-flag delivered">Delivered</span>
+        <div class="tag">Engineering Velocity &amp; Release Cadence</div>
+        <h3>Quarterly releases cut to fortnightly</h3>
+        <p>Directed the build of CI/CD pipelines in a PCF environment using GitLab — reusable, fully tested templates rolled out to engineering — with dedicated SIT, UAT (regression) and NFT environments.</p>
+        <div class="delta-stat"><span class="from">22 days</span><span class="to">→ &lt;12 days</span><span class="ctx">release cycle time, quarterly/monthly to fortnightly</span></div>
+        <div class="proof-row"><div class="proof">OKR: Speed to Market</div><div class="proof">OKR: Higher Code Quality</div><div class="proof">OKR: Platform Stability</div></div>
+      </div>
+      <div class="value-card card wide">
+        <span class="tier-flag delivered">Delivered — First of Its Kind at the Bank</span>
+        <div class="tag">Zero-Downtime Deployment</div>
+        <h3>Weekend release windows retired</h3>
+        <p>Introduced Blue-Green deployment for the first time at the bank, replacing scheduled weekend releases with on-demand, zero-downtime deployments.</p>
+        <div class="delta-stat"><span class="from">Weekend deployments</span><span class="to">→ On-demand, zero downtime</span></div>
+        <div class="proof-row"><div class="proof">Checkouts moved to mid-week hours</div><div class="proof">Availability &gt;99% at all times</div></div>
+      </div>
       <div class="value-card card">
+        <span class="tier-flag delivered">Delivered</span>
         <div class="tag">Delivery Predictability</div>
-        <h3>Programmes that land on time, with evidence</h3>
-        <p>SDLC governance integrating Agile and Waterfall, RAID ownership, release-train coordination and go/no-go gates across matrixed, regulated organisations.</p>
-        <div class="proof">5 concurrent teams · 45 professionals · NatWest</div>
+        <h3>Governance across 5 concurrent teams</h3>
+        <p>SDLC governance integrating Agile and Waterfall, RAID ownership, release-train coordination across a matrixed, regulated organisation.</p>
+        <div class="proof">5 teams · 45 professionals · NatWest</div>
       </div>
       <div class="value-card card">
-        <div class="tag">Cost &amp; Operating Efficiency</div>
-        <h3>Automation that changes the cost curve</h3>
-        <p>Designed a two-tier AI automation model for customer servicing, engineered to scale across every request journey on the platform.</p>
-        <div class="proof">70,000+ requests/mo · 50%+ target FTE reduction</div>
-      </div>
-      <div class="value-card card">
+        <span class="tier-flag delivered">Delivered</span>
         <div class="tag">Risk &amp; Regulatory Confidence</div>
-        <h3>Governance that survives an audit</h3>
-        <p>Direct engagement with internal audit, EY, KPMG, Navigant, MAS and RBI — evidencing delivery readiness and driving remediation to closure.</p>
+        <h3>Governance that has passed real audits</h3>
+        <p>Direct engagement with internal audit, EY, KPMG, Navigant, MAS and RBI — evidencing delivery readiness, driving remediation to closure.</p>
         <div class="proof">$60M+ portfolio · Standard Chartered</div>
       </div>
       <div class="value-card card">
-        <div class="tag">Platform &amp; Infrastructure Modernisation</div>
-        <h3>Legacy platforms moved to cloud, live</h3>
-        <p>Directing a phased Pivotal Cloud Foundry to AWS migration — VPC design, Amazon EKS compute — cut over journey by journey.</p>
-        <div class="proof">Java · Spring Boot · Node.js · Camunda · AWS EKS</div>
+        <span class="tier-flag progress">In Progress</span>
+        <div class="tag">Platform Modernisation</div>
+        <h3>Legacy platform migrating to cloud, live</h3>
+        <p>Leading a phased migration from an on-premises PaaS environment to AWS, cutting over one servicing journey at a time.</p>
+        <div class="proof">Java · Spring Boot · Node.js · AWS</div>
       </div>
-      <div class="value-card card wide">
+      <div class="value-card card">
+        <span class="tier-flag delivered">Delivered</span>
         <div class="tag">Quality &amp; Test Efficiency</div>
-        <h3>Testing that shifts left, not just runs faster</h3>
-        <p>Directed the build of a complete test automation suite (Selenium, Gherkin/BDD) covering every servicing journey on the platform.</p>
-        <div class="proof-row">
-          <div class="proof">Testing shifted left in the SDLC</div>
-          <div class="proof">Faster test execution cycles</div>
-          <div class="proof">Fail-fast approach</div>
-          <div class="proof">Faster bug resolution within cycle time</div>
-        </div>
+        <h3>Manual regression replaced with automation</h3>
+        <p>Directed the build of a complete test automation suite (Selenium, Gherkin/BDD) covering every servicing journey, shifting quality checks earlier.</p>
+        <div class="proof-row"><div class="proof">Shifted left</div><div class="proof">Fail-fast</div><div class="proof">Faster bug resolution</div></div>
       </div>
       <div class="value-card card wide">
-        <div class="tag">Engineering Velocity &amp; Release Cadence</div>
-        <h3>From quarterly releases to fortnightly, at higher quality</h3>
-        <p>Directed the build of CI/CD pipelines in PCF using GitLab — reusable, fully tested templates — with dedicated SIT, UAT (regression) and NFT environments.</p>
-        <div class="delta-stat">
-          <span class="from">22 days</span>
-          <span class="to">→ &lt;12 days</span>
-          <span class="ctx">release cycle time, quarterly/monthly to fortnightly</span>
-        </div>
-        <div class="proof-row">
-          <div class="proof">OKR: Speed to Market</div>
-          <div class="proof">OKR: Higher Code Quality</div>
-          <div class="proof">OKR: Platform Stability &amp; Optimisation</div>
-        </div>
+        <span class="tier-flag progress">In Progress — Target, Not Yet Achieved</span>
+        <div class="tag">AI-Enabled Automation — Platform-Wide Strategy</div>
+        <h3>A two-tier automation model, piloted and scaling</h3>
+        <p>Designed a two-tier AI automation model for customer servicing, piloted on one journey and engineered to extend across every other request type.</p>
+        <div class="proof-row"><div class="proof">Target: 70,000+ requests/month</div><div class="proof">Target: 50%+ FTE reduction</div></div>
       </div>
-      <div class="value-card card wide">
-        <div class="tag">First-of-Kind at the Bank</div>
-        <h3>Introduced Blue-Green deployment — weekends become Tuesdays</h3>
-        <p>Brought Blue-Green deployment into the bank for the first time, retiring the weekend release window in favour of on-demand, zero-downtime deployments.</p>
-        <div class="delta-stat">
-          <span class="from">Weekend deployments</span>
-          <span class="to">→ On-demand, zero downtime</span>
-        </div>
-        <div class="proof-row">
-          <div class="proof">Business checkouts moved to mid-week working hours</div>
-          <div class="proof">System availability &gt;99% at all times</div>
-        </div>
-      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Professional experience</div>
+      <h2>25 years, eight countries — the full record</h2>
+    </div>
+    <div class="job">
+      <div class="job-head"><div class="org">NatWest Group</div><div class="dates mono">Dec 2023 — Present · London</div></div>
+      <div class="role">Director / Programme Manager — Business &amp; Technology Transformation</div>
+      <ul>
+        <li>Programme Manager for NatWest's full Commercial &amp; Institutional Banking servicing platform — Mandates, Cards onboarding, Payment Queries, Cheques, ePrivacy, Change of Business Details and more — leading <b>5 concurrent Agile teams (~45 professionals)</b>.</li>
+        <li>Leading the pilot of a platform-wide AI automation strategy: inbound requests classified by an LLM-based classification layer, then routed through a BPMN-based workflow orchestrator combining OCR/signature verification, autonomous business-rule validation, and human review only where genuinely needed. <b>Target: 70,000+ requests/month automated, 50%+ FTE reduction</b> — in progress, not yet achieved.</li>
+        <li>Leading a phased migration of the platform from an on-premises PaaS environment to AWS, alongside full technology stack modernisation.</li>
+        <li>Directed a test automation suite (Selenium, Gherkin/BDD), CI/CD pipelines (GitLab), and the bank's first Blue-Green deployment — cutting release cycle time from <b>22 days to under 12</b> and retiring weekend release windows.</li>
+      </ul>
+    </div>
+    <div class="job">
+      <div class="job-head"><div class="org">Tata Consultancy Services</div><div class="dates mono">Feb 2022 — Dec 2023</div></div>
+      <div class="role">Project Manager / Release Train Manager — Customer Identification Management (CIM), NatWest</div>
+      <div class="note">Relocated from Singapore to the UK in 2022 after 11+ years abroad, for a clearer long-term future for my family — joined NatWest via this TCS contract before moving into a permanent Director role.</div>
+      <ul>
+        <li>Led delivery of the foundational Customer Identification Management capability — determining existing bank relationships and creating unique Party IDs for primary and related parties.</li>
+        <li>Linked Party IDs to Legal Entity IDs and source-system identifiers; supported the strategic Party DB, the bank's trusted single source of customer identity.</li>
+      </ul>
+    </div>
+    <div class="job">
+      <div class="job-head"><div class="org">Standard Chartered Bank</div><div class="dates mono">May 2015 — Feb 2022 · Singapore</div></div>
+      <div class="role">Executive Director / Programme Manager — Technology &amp; Innovation</div>
+      <ul>
+        <li>Directed a global transformation portfolio exceeding <b>$60 million</b> supporting 20M+ clients across four programmes: Client Risk Assessment (CRA), Related Party Data Management (RPDM), Banking Platform Services &amp; Interfaces (BPSI), and an ESG initiative.</li>
+        <li>Directed modernisation of the bank's CRA Engine — real-time financial-crime risk assessment — building deep working knowledge of PEP, sanctions, AML and adverse media variables.</li>
+        <li>Engaged directly with internal audit, EY, KPMG, Navigant, MAS and RBI, driving remediation of findings to closure.</li>
+      </ul>
+    </div>
+    <div class="job">
+      <div class="job-head"><div class="org">DBS Bank</div><div class="dates mono">Feb 2012 — May 2015 · Singapore</div></div>
+      <div class="role">Senior Business Analyst / Transformation Lead — Institutional Banking</div>
+      <ul>
+        <li>Built a full-fledged credit risk rating platform (internally named OCRA) for DBS commercial and business banking customers under the Risk Management Group — interacting with Fitch, Moody's and S&amp;P to compute a Customer Risk Rating (scale 1–5).</li>
+        <li>Rewrote the entire Facility Risk Rating specification over roughly a year, migrating from a Foundation (FIRB) to Advanced (AIRB) model — recomputing LGD, PD, EAD and RWA parameters.</li>
+        <li>Drove the capability through build, SIT, UAT and go-live across a <b>$7.5 million</b> MAS-aligned portfolio spanning six Asian markets.</li>
+      </ul>
+    </div>
+    <div class="job">
+      <div class="job-head"><div class="org">Citibank</div><div class="dates mono">Oct 2010 — Feb 2012 · Singapore</div></div>
+      <div class="role">Transformation Functional Lead — Global Customer Repository</div>
+      <ul><li>Led functional transformation for a <b>$30 million</b> Global Customer Repository programme across 26 countries.</li></ul>
+    </div>
+    <div class="job">
+      <div class="job-head"><div class="org">ABSA Bank · Citibank (Nordics) · Earlier Career</div><div class="dates mono">May 2001 — Aug 2010</div></div>
+      <div class="role">Business Analyst roles — Johannesburg, Stockholm, India</div>
+      <ul>
+        <li>ABSA Bank (2009–2010): Flexcube core-banking re-platforming across Tanzania and Mozambique.</li>
+        <li>Citibank Nordics (2008–2009): digital/eCommerce banking BA — Cards and Loans across four Nordic markets.</li>
+        <li>Deutsche Bank · ICICI Bank · Standard Chartered (India) · Ajuba Solutions (2001–2008): began in branch banking operations, including SWIFT wire transfer processing.</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -329,158 +278,72 @@
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Signature build — in progress</div>
-      <h2>NatWest Servicing Business Platform: from Mandates to platform-wide automation</h2>
+      <h2>A pilot for platform-wide AI automation</h2>
     </div>
     <div class="case card">
       <div class="case-grid">
         <div>
-          <h3>Mandates — the pilot for a platform-wide AI strategy</h3>
-          <p class="lede">
-            Customers add, remove, update or view signatories on their business accounts. Behind that
-            simple request sits a fully AI-orchestrated workflow, classifying and routing every inbound
-            request before a rules engine and orchestrator drives it end to end.
-          </p>
+          <span class="tier-flag progress">In Progress — Target, Not Yet Achieved</span>
+          <h3>Mandates — the pilot journey</h3>
+          <p class="lede">Customers add, remove, update or view signatories on business accounts. Behind that request sits an AI-orchestrated workflow, classifying and routing every inbound request end to end.</p>
           <div class="flow">
-            <span class="step">CRM email in</span><span class="arrow">→</span>
-            <span class="step">Polaris (Claude Sonnet 4.5) classifies</span><span class="arrow">→</span>
-            <span class="step">Camunda FluxNova orchestrates</span><span class="arrow">→</span>
-            <span class="step">Textract OCR + signature match</span><span class="arrow">→</span>
-            <span class="step">Adobe e-sign</span><span class="arrow">→</span>
-            <span class="step">AI agent business checks</span><span class="arrow">→</span>
+            <span class="step">Request received</span><span class="arrow">→</span>
+            <span class="step">LLM classification</span><span class="arrow">→</span>
+            <span class="step">BPMN orchestration</span><span class="arrow">→</span>
+            <span class="step">OCR + signature match</span><span class="arrow">→</span>
+            <span class="step">E-sign</span><span class="arrow">→</span>
+            <span class="step">Automated business checks</span><span class="arrow">→</span>
             <span class="step">ID&amp;V / fraud / AML</span><span class="arrow">→</span>
-            <span class="step">HITL review</span><span class="arrow">→</span>
+            <span class="step">Human review</span><span class="arrow">→</span>
             <span class="step">Fulfilment</span>
           </div>
         </div>
         <div class="tiermodel">
           <h4>Two-tier automation model</h4>
-          <div class="tier">
-            <div class="t">Incorporated companies</div>
-            <div class="d">Full straight-through processing — signature verification plus automated Companies House lookup, no human touch.</div>
-          </div>
-          <div class="tier">
-            <div class="t">Unincorporated companies</div>
-            <div class="d">Full automation up to a final human-in-the-loop check.</div>
-          </div>
-          <div class="bigstat">70,000+<span>requests/month once scaled</span></div>
-          <div class="bigstat">50%+<span>targeted reduction in FTE requirement</span></div>
+          <div class="tier"><div class="t">Incorporated companies</div><div class="d">Full straight-through processing — signature verification plus automated Companies House lookup.</div></div>
+          <div class="tier"><div class="t">Unincorporated companies</div><div class="d">Full automation up to a final human-in-the-loop check.</div></div>
+          <div class="bigstat">70,000+<span>target requests/month once scaled</span></div>
+          <div class="bigstat">50%+<span>target reduction in FTE requirement</span></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="ledger">
+<section id="education">
   <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">Career timeline</div>
-      <h2>25 years, eight countries, one throughline: complex delivery, landed</h2>
-    </div>
-    <p style="color:var(--ink-soft); font-size:13.5px; margin:-8px 0 20px;">Click any role for the detailed breakdown of what was actually built.</p>
-    <div class="ledger">
-      <div class="ledger-row card" data-key="natwest" role="button" tabindex="0" aria-haspopup="dialog">
-        <div class="dates mono">2023 — Now</div>
-        <div><div class="org">NatWest Group</div><div class="role">Director / Programme Manager — Business &amp; Technology Transformation · London</div></div>
-        <div class="metric">45 people · 5 teams</div>
-        <div class="expand-hint">View detailed breakdown →</div>
+    <div class="section-head"><div class="eyebrow">Education &amp; credentials</div><h2>What's verified, and what's in progress</h2></div>
+    <div class="edu-grid">
+      <div class="edu-card card">
+        <h4>Education</h4>
+        <ul><li>Bachelor of Engineering<span class="sub">University of Mumbai</span></li></ul>
       </div>
-      <div class="ledger-row card" data-key="tcs" role="button" tabindex="0" aria-haspopup="dialog">
-        <div class="dates mono">2022 — 2023</div>
-        <div><div class="org">Tata Consultancy Services</div><div class="role">Project Manager / Release Train Manager — Customer Identification Management · NatWest</div></div>
-        <div class="metric">RTM, CIM programme</div>
-        <div class="expand-hint">View detailed breakdown →</div>
-      </div>
-      <div class="ledger-row card" data-key="scb" role="button" tabindex="0" aria-haspopup="dialog">
-        <div class="dates mono">2015 — 2022</div>
-        <div><div class="org">Standard Chartered Bank</div><div class="role">Executive Director / Programme Manager — Technology &amp; Innovation · Singapore</div></div>
-        <div class="metric">$60M+ · 20M+ clients</div>
-        <div class="expand-hint">View detailed breakdown →</div>
-      </div>
-      <div class="ledger-row card" data-key="dbs" role="button" tabindex="0" aria-haspopup="dialog">
-        <div class="dates mono">2012 — 2015</div>
-        <div><div class="org">DBS Bank</div><div class="role">Senior Business Analyst / Transformation Lead — Institutional Banking · Singapore</div></div>
-        <div class="metric">$7.5M · 6 markets</div>
-        <div class="expand-hint">View detailed breakdown →</div>
-      </div>
-      <div class="ledger-row card" data-key="citi" role="button" tabindex="0" aria-haspopup="dialog">
-        <div class="dates mono">2010 — 2012</div>
-        <div><div class="org">Citibank</div><div class="role">Transformation Functional Lead — Global Customer Repository · Singapore</div></div>
-        <div class="metric">$30M · 26 countries</div>
-        <div class="expand-hint">View detailed breakdown →</div>
-      </div>
-      <div class="ledger-row card" data-key="absa" role="button" tabindex="0" aria-haspopup="dialog">
-        <div class="dates mono">2009 — 2010</div>
-        <div><div class="org">ABSA Bank</div><div class="role">Business Analyst — Core-Banking Re-Platforming · Johannesburg</div></div>
-        <div class="metric">Tanzania · Mozambique</div>
-        <div class="expand-hint">View detailed breakdown →</div>
-      </div>
-      <div class="ledger-row card" data-key="nordics" role="button" tabindex="0" aria-haspopup="dialog">
-        <div class="dates mono">2008 — 2009</div>
-        <div><div class="org">Citibank — Nordics</div><div class="role">Business Analyst — Digital / eCommerce Banking · Stockholm &amp; India</div></div>
-        <div class="metric">4 Nordic markets</div>
-        <div class="expand-hint">View detailed breakdown →</div>
-      </div>
-      <div class="ledger-row card" data-key="early" role="button" tabindex="0" aria-haspopup="dialog">
-        <div class="dates mono">2001 — 2008</div>
-        <div><div class="org">Deutsche Bank · ICICI Bank · Standard Chartered (India) · Ajuba Solutions</div><div class="role">Early career — banking operations, international payments &amp; SWIFT fundamentals · India</div></div>
-        <div class="metric">Foundational years</div>
-        <div class="expand-hint">View detailed breakdown →</div>
+      <div class="edu-card card">
+        <h4>Certifications &amp; Training</h4>
+        <ul>
+          <li>Certified ScrumMaster® (CSM)<span class="sub">Scrum Alliance — 2018</span></li>
+          <li>PMP Training — 36 PDUs<span class="sub">2015 (training completed, not a formal PMP certification)</span></li>
+          <li>AWS Certified AI Practitioner<span class="sub">In progress</span></li>
+          <li>AWS Certified Solutions Architect – Associate<span class="sub">In progress</span></li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
-<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalOrg">
-  <div class="modal-panel">
-    <div class="modal-head">
-      <div>
-        <div class="org" id="modalOrg"></div>
-        <div class="role" id="modalRole"></div>
-        <div class="period" id="modalPeriod"></div>
-      </div>
-      <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
-    </div>
-    <div class="modal-body" id="modalBody"></div>
-  </div>
-</div>
-
 <section id="skills">
   <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">Core skills</div>
-      <h2>The toolkit behind the outcomes</h2>
-    </div>
+    <div class="section-head"><div class="eyebrow">Core skills</div><h2>The toolkit behind the outcomes</h2></div>
     <div class="skill-cols">
-      <div class="skill-card card">
-        <h4>Programme &amp; Delivery</h4>
-        <ul>
-          <li>Programme &amp; Portfolio Governance</li>
-          <li>RAID &amp; Dependency Management</li>
-          <li>Release Train Management</li>
-          <li>Agile &amp; Waterfall SDLC Ownership</li>
-          <li>Budget Forecasting &amp; Financial Oversight</li>
-        </ul>
-      </div>
-      <div class="skill-card card">
-        <h4>Technology &amp; AI</h4>
-        <ul>
-          <li>AI Agent Deployment in Live Operations</li>
-          <li>Hybrid Cloud Migration (AWS, PCF)</li>
-          <li>Workflow Orchestration &amp; Rules Engines</li>
-          <li>AI Governance &amp; Responsible AI</li>
-          <li>Technology Stack Modernisation</li>
-        </ul>
-      </div>
-      <div class="skill-card card">
-        <h4>Governance &amp; Leadership</h4>
-        <ul>
-          <li>Executive &amp; Board-Level Reporting</li>
-          <li>Audit &amp; Regulatory Engagement</li>
-          <li>Vendor &amp; Third-Party Management</li>
-          <li>Cross-Functional Team Leadership</li>
-          <li>Certified ScrumMaster® (CSM), 2018</li>
-        </ul>
-      </div>
+      <div class="skill-card card"><h4>Programme &amp; Delivery</h4><ul>
+        <li>Programme &amp; Portfolio Governance</li><li>RAID &amp; Dependency Management</li><li>Release Train Management</li><li>Agile &amp; Waterfall SDLC Ownership</li><li>Budget Forecasting</li>
+      </ul></div>
+      <div class="skill-card card"><h4>Technology &amp; AI</h4><ul>
+        <li>AI-Enabled Process Automation</li><li>Hybrid Cloud Migration (AWS)</li><li>Workflow Orchestration &amp; Rules Engines</li><li>AI Governance &amp; Responsible AI</li><li>Technology Stack Modernisation</li>
+      </ul></div>
+      <div class="skill-card card"><h4>Governance &amp; Leadership</h4><ul>
+        <li>Executive &amp; Board Reporting</li><li>Audit &amp; Regulatory Engagement</li><li>Vendor &amp; Third-Party Management</li><li>Cross-Functional Team Leadership</li><li>Certified ScrumMaster® (CSM), 2018</li>
+      </ul></div>
     </div>
   </div>
 </section>
@@ -488,214 +351,28 @@
 <footer>
   <div class="wrap">
     <div class="cta">
-      <h2>Bringing 25 years of delivery discipline to the next complex programme.</h2>
-      <div class="contact-line">
-        <a href="mailto:ash.ashutoshpathak@gmail.com">ash.ashutoshpathak@gmail.com</a><span>·</span>
-        <a href="tel:+447765720372">+44 7765 720372</a>
-      </div>
+      <h2>25 years of delivery discipline. Verifiable, not just impressive.</h2>
+      <a class="btn" href="Ashutosh_Pathak_Resume.pdf" target="_blank" rel="noopener">↓ Download resume (PDF)</a>
     </div>
-    <div class="note">Ashutosh Pathak — London, United Kingdom. Available for Director / Programme Manager / Delivery Manager roles in financial services and regulated technology environments.</div>
-    <div class="visit-counter">
-      <span>Visits:</span>
-      <img src="https://visitor-badge.laobi.icu/badge?page_id=ashupath26.portfolio-google" alt="visitor count" />
-    </div>
+    <div class="note-strip">Ashutosh Pathak — London, United Kingdom. Available for Director / Programme Manager / Delivery Manager roles in financial services and regulated technology environments.</div>
+    <div class="visit-counter"><span>Visits:</span><img src="https://visitor-badge.laobi.icu/badge?page_id=ashupath26.portfolio-google" alt="visitor count" /></div>
   </div>
 </footer>
 
 <script>
-const CAREER_DETAIL = {
-  natwest: {
-    org: "NatWest Group",
-    role: "Director / Programme Manager — Business & Technology Transformation",
-    period: "December 2023 – Present · London, United Kingdom",
-    sections: [
-      { h: "Strategic Servicing Platform (SBP)", items: [
-        "Programme Manager for NatWest's full Servicing Business Platform for Commercial & Institutional Banking — services all customer request types: Mandates, New &amp; Additional Cards, Payment Queries, Cheques, ePrivacy, Change of Business Details and more.",
-        "Own SDLC governance end-to-end integrating Agile and Waterfall, backlog value-slicing, release-train coordination and Build/QA alignment across 5 concurrent teams (~45 professionals)."
-      ]},
-      { h: "Mandates &amp; Platform-Wide AI Automation", items: [
-        "Building the strategic Mandates journey (add, remove, update, view signatories) as the pilot for a platform-wide AI automation strategy.",
-        "Inbound CRM email requests classified by Polaris — an LLM-powered (Claude Sonnet 4.5) solution — before a rules engine and orchestrator (Camunda FluxNova) drives the workflow.",
-        "Workflow: request ingestion → AI-powered OCR &amp; signature matching (AWS Textract) → Adobe e-sign → autonomous AI agent business validations → ID&amp;V/fraud/AML checks → human-in-the-loop review → downstream fulfilment.",
-        "Two-tier automation model: full straight-through processing for incorporated companies (Companies House lookup + signature verification); automation up to a final human check for unincorporated companies.",
-        "Target: automate 70,000+ requests/month across the platform and reduce FTE requirement by over 50%."
-      ]},
-      { h: "New &amp; Additional Cards Onboarding", items: [
-        "Led delivery of the commercial card onboarding and servicing journey for corporate, commercial and business banking clients.",
-        "Multi-channel request origination — EForms, Mobile Banking, Bankline — via Kafka topics (bulk) and real-time APIs.",
-        "Automated validation &amp; enrichment integrated from Equifax, Mytek/Hooyu, e-signature, AML, fraud and sanctions systems, orchestrated by a rules engine.",
-        "Downstream fulfilment into card issuance, CRM and customer notification (Hermes) systems."
-      ]},
-      { h: "PCF → AWS Hybrid Cloud Migration &amp; Platform Modernisation", items: [
-        "Directing end-to-end modernisation of the platform's Java, Spring Boot, Node.js/NPM and Camunda stack ahead of cloud migration.",
-        "Leading phased migration from Pivotal Cloud Foundry to AWS — VPC design, Amazon EKS as compute platform, journey-by-journey cutover.",
-        "Owns ingress/egress and security design across AWS-to-AWS and AWS-to-PCF boundaries."
-      ]},
-      { h: "Engineering &amp; Release Excellence", items: [
-        "Directed build of a complete test automation suite (Selenium, Gherkin/BDD) covering every servicing journey — testing shifted left, fail-fast, faster bug resolution.",
-        "Directed build of CI/CD pipelines in PCF using GitLab — reusable, fully tested templates; dedicated SIT, UAT (regression) and NFT environments.",
-        "Reduced release cycle time from 22 days to under 12 days, moving cadence from quarterly/monthly to fortnightly.",
-        "Introduced Blue-Green deployment to the bank for the first time — retiring weekend deployments for on-demand, zero-downtime releases; system availability held above 99%."
-      ]}
-    ]
-  },
-  tcs: {
-    org: "Tata Consultancy Services",
-    role: "Project Manager / Release Train Manager — Customer Identification Management (CIM)",
-    period: "February 2022 – December 2023 · NatWest Group, Commercial &amp; Institutional Banking",
-    sections: [
-      { h: "Customer Identification Management (CIM)", items: [
-        "Led delivery of the foundational CIM capability, establishing services to search, identify and consistently determine whether an individual or legal entity already held an existing relationship with the bank.",
-        "Established capability to create and manage unique Party IDs — not only for the primary legal entity, but also for associated and related parties (directors, beneficiaries, other individual/non-individual relationships).",
-        "Ensured Party IDs were correctly linked to corresponding Legal Entity IDs and Customer/Business Identification Numbers (CIN/BIN) across other source systems.",
-        "Supported creation of records within the strategic Party DB, consolidating customer and related-party information into a trusted, single source of identity.",
-        "Coordinated Business, Product, Architecture, Engineering, Data and downstream platform teams to define requirements and resolve cross-system dependencies.",
-        "Outcome: a reusable identification capability answering who a customer is, what other parties are associated with them, and how those parties relate to one another — the foundation for richer relationship and hierarchy capabilities."
-      ]}
-    ]
-  },
-  scb: {
-    org: "Standard Chartered Bank",
-    role: "Executive Director / Programme Manager — Technology &amp; Innovation",
-    period: "May 2015 – February 2022 · Singapore",
-    sections: [
-      { h: "Client Risk Assessment (CRA) Engine", items: [
-        "Directed modernisation of the bank's CRA Engine — the real-time system for assessing customer financial crime risk — working directly with the financial crime team.",
-        "Built deep working knowledge of risk variables: PEP status, sanctioned-party connections, AML indicators, source of wealth/business/income, age/country/date of incorporation, adverse media, SARs, NPAs, non-compliant transactions.",
-        "Recreated the CRA rules engine in Microsoft Excel using nested IF/THEN/ELSE and VLOOKUP logic to validate rules and outcomes with the financial crime team ahead of technology delivery."
-      ]},
-      { h: "RPDM — Related Party Data Management", items: [
-        "Led functional and delivery activities across RPDM, managing business requirements, data dependencies and alignment between business objectives and technology solutions for related-party data."
-      ]},
-      { h: "BPSI — Banking Platform Services &amp; Interfaces", items: [
-        "Directly managed the BPSI technical programme (3 DevOps, 2 developers, 1 principal engineer reporting directly), coordinating platform, infrastructure and interface dependencies across upstream and downstream systems."
-      ]},
-      { h: "ESG Initiative", items: [
-        "Delivered a time-critical ESG initiative supporting BES requirements, mobilising cross-functional stakeholders and driving execution against a stringent timeline."
-      ]},
-      { h: "Audit &amp; Regulatory Engagement", items: [
-        "Directed a global transformation portfolio exceeding USD 60 million supporting more than 20 million clients across FATCA/CRS, CRA, RPDM, BPSI and ESG.",
-        "Engaged directly with internal audit and external assurance reviewers — EY, KPMG and Navigant — and regulators MAS and RBI, evidencing delivery readiness and driving remediation of audit findings to closure."
-      ]}
-    ]
-  },
-  dbs: {
-    org: "DBS Bank",
-    role: "Senior Business Analyst / Transformation Lead — Institutional Banking",
-    period: "February 2012 – May 2015 · Singapore",
-    sections: [
-      { h: "OCRA — Credit Risk Rating Platform", items: [
-        "Built a full-fledged credit risk rating platform (OCRA) for DBS commercial and business banking customers, under the Risk Management Group (RMG) — a flagship success in 2015.",
-        "Platform interacts with external rating agencies — Fitch, Moody's and S&amp;P — to fetch customer financial details.",
-        "Performs Customer Risk Rating (CRR, scale 1–5) based on DBS's own customer risk rating model."
-      ]},
-      { h: "Facility Risk Rating &amp; Collateral Management", items: [
-        "Based on the facility/product a customer selects, OCRA performs Facility Risk Rating (FRR), with an inbuilt collateral management system to improve rating accuracy."
-      ]},
-      { h: "FIRB → AIRB Model Migration", items: [
-        "FRR was initially built on a FIRB (Foundation Internal Ratings-Based) model.",
-        "Over roughly a year, rewrote the entire specification to migrate FRR onto an AIRB (Advanced Internal Ratings-Based) model — updated parameters for computing LGD, PD, EAD, PE, EL and RWA.",
-        "Created mockups and wireframes, worked with development and testing teams through build, SIT and UAT, and drove business go-live.",
-        "Delivered across a USD 7.5 million MAS-aligned portfolio spanning six Asian markets."
-      ]}
-    ]
-  },
-  citi: {
-    org: "Citibank",
-    role: "Transformation Functional Lead — Global Customer Repository",
-    period: "October 2010 – February 2012 · Singapore",
-    sections: [
-      { h: "Global Customer Repository", items: [
-        "Led functional transformation for a USD 30 million Global Customer Repository programme across 26 countries.",
-        "Established a trusted golden-customer-record capability across businesses, products and platforms.",
-        "Drove alignment on customer identification, data attributes, business rules, data quality and integration requirements."
-      ]}
-    ]
-  },
-  absa: {
-    org: "ABSA Bank",
-    role: "Business Analyst — Banking Transformation",
-    period: "October 2009 – August 2010 · Johannesburg",
-    sections: [
-      { h: "Core-Banking Re-Platforming", items: [
-        "Supported Flexcube core-banking re-platforming and data migration across Tanzania and Mozambique.",
-        "Worked across Business and Technology teams through solution development, testing, UAT and implementation."
-      ]}
-    ]
-  },
-  nordics: {
-    org: "Citibank — Nordics",
-    role: "Business Analyst — Digital / eCommerce Banking, Cards &amp; Unsecured Lending",
-    period: "May 2008 – August 2009 · Stockholm, Sweden &amp; India",
-    sections: [
-      { h: "Digital / eCommerce Banking", items: [
-        "Business Analyst for Citi's Nordics eCommerce business — Credit Cards and Unsecured/Personal Loans across Sweden, Norway, Denmark and Finland.",
-        "Owned functional requirements for pre-login and authenticated digital journeys — e-banners, account landing pages, transaction summaries, up to three months of statement history.",
-        "Defined multi-factor authentication and data-security requirements; built wireframes and mock-ups; coordinated with an offshore development team through SIT.",
-        "Developed the UAT strategy and independently coordinated business checkout and go-live validation across all four Nordic markets, in local-language and English."
-      ]}
-    ]
-  },
-  early: {
-    org: "Deutsche Bank · ICICI Bank · Standard Chartered (India) · Ajuba Solutions",
-    role: "Early Career — Banking Operations &amp; International Payments",
-    period: "May 2001 – May 2008 · India",
-    sections: [
-      { h: "International Payments &amp; SWIFT Fundamentals", items: [
-        "Began banking career in branch operations at Standard Chartered Bank India, gaining hands-on experience processing international wire transfers via SWIFT — Nostro/Vostro account mechanics, International Clearing House (ICH) processes, and the precise beneficiary, BIC/SWIFT code, IBAN and intermediary-bank details required for cross-border payments to settle correctly.",
-        "Continued working directly with clients on international funds transfers through subsequent roles at ICICI Bank and Deutsche Bank, building front-to-back understanding of banking operations ahead of moving into business analysis and programme leadership."
-      ]}
-    ]
-  }
-};
-
-(function(){
-  const overlay = document.getElementById('modalOverlay');
-  const closeBtn = document.getElementById('modalClose');
-  let lastFocused = null;
-
-  function openModal(key){
-    const data = CAREER_DETAIL[key];
-    if(!data) return;
-    document.getElementById('modalOrg').innerHTML = data.org;
-    document.getElementById('modalRole').innerHTML = data.role;
-    document.getElementById('modalPeriod').innerHTML = data.period;
-    const body = document.getElementById('modalBody');
-    body.innerHTML = data.sections.map(function(s){
-      return '<div class="modal-section"><h4>' + s.h + '</h4><ul>' +
-        s.items.map(function(i){ return '<li>' + i + '</li>'; }).join('') +
-        '</ul></div>';
-    }).join('');
-    lastFocused = document.activeElement;
-    overlay.classList.add('open');
-    closeBtn.focus();
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeModal(){
-    overlay.classList.remove('open');
-    document.body.style.overflow = '';
-    if(lastFocused) lastFocused.focus();
-  }
-
-  document.querySelectorAll('.ledger-row').forEach(function(row){
-    row.addEventListener('click', function(){ openModal(row.getAttribute('data-key')); });
-    row.addEventListener('keydown', function(e){
-      if(e.key === 'Enter' || e.key === ' '){
-        e.preventDefault();
-        openModal(row.getAttribute('data-key'));
-      }
-    });
-  });
-
-  closeBtn.addEventListener('click', closeModal);
-  overlay.addEventListener('click', function(e){
-    if(e.target === overlay) closeModal();
-  });
-  document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
-  });
-})();
+  (function(){
+    var u = "ash.ashutoshpathak", d = "gmail.com";
+    var email = u + "@" + d;
+    var emailEl = document.getElementById('contactEmail');
+    var a = document.createElement('a'); a.href = "mailto:" + email; a.textContent = email;
+    emailEl.appendChild(a);
+    var phoneDigits = ["+44","7765","720372"];
+    var phoneEl = document.getElementById('contactPhone');
+    var pa = document.createElement('a'); pa.href = "tel:" + phoneDigits.join("").replace(/\s/g,""); pa.textContent = phoneDigits.join(" ");
+    phoneEl.appendChild(pa);
+    document.getElementById('linkedinLink').href = "https://www.linkedin.com/in/ashutoshpathak/";
+  })();
 </script>
+
 </body>
 </html>
