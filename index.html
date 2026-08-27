@@ -205,19 +205,121 @@ CRM email in
       </details>
 
       <h2>Career log</h2>
-      <table>
-        <thead><tr><th>Period</th><th>Role</th><th>Scale</th></tr></thead>
-        <tbody>
-          <tr><td class="mono">2023–now</td><td><b>NatWest Group</b> — Director / Programme Manager, Business &amp; Technology Transformation, London</td><td class="metric">45 people · 5 teams</td></tr>
-          <tr><td class="mono">2022–2023</td><td><b>TCS</b> — Project Manager / Release Train Manager, CIM, NatWest</td><td class="metric">RTM, CIM programme</td></tr>
-          <tr><td class="mono">2015–2022</td><td><b>Standard Chartered Bank</b> — Executive Director / Programme Manager, Technology &amp; Innovation, Singapore</td><td class="metric">$60M+ · 20M+ clients</td></tr>
-          <tr><td class="mono">2012–2015</td><td><b>DBS Bank</b> — Senior Business Analyst / Transformation Lead, Institutional Banking, Singapore</td><td class="metric">$7.5M · 6 markets</td></tr>
-          <tr><td class="mono">2010–2012</td><td><b>Citibank</b> — Transformation Functional Lead, Global Customer Repository, Singapore</td><td class="metric">$30M · 26 countries</td></tr>
-          <tr><td class="mono">2009–2010</td><td><b>ABSA Bank</b> — Business Analyst, Core-Banking Re-Platforming, Johannesburg</td><td class="metric">Tanzania · Mozambique</td></tr>
-          <tr><td class="mono">2008–2009</td><td><b>Citibank — Nordics</b> — Business Analyst, Digital / eCommerce Banking, Stockholm &amp; India</td><td class="metric">4 Nordic markets</td></tr>
-          <tr><td class="mono">2001–2008</td><td><b>Deutsche Bank · ICICI Bank · Standard Chartered (India) · Ajuba Solutions</b> — Early career, India</td><td class="metric">Foundational years</td></tr>
-        </tbody>
-      </table>
+      <p class="lede">Expand any role for the detailed breakdown of what was actually built.</p>
+
+      <details>
+        <summary>2023–now · NatWest Group — Director / Programme Manager, Business &amp; Technology Transformation, London <span style="color:var(--green);">(45 people · 5 teams)</span></summary>
+        <p><b>Strategic Servicing Platform (SBP)</b></p>
+        <ul class="check">
+          <li>Programme Manager for the full Servicing Business Platform for Commercial &amp; Institutional Banking — Mandates, New &amp; Additional Cards, Payment Queries, Cheques, ePrivacy, Change of Business Details and more.</li>
+          <li>Own SDLC governance end-to-end (Agile + Waterfall), backlog value-slicing, release-train coordination, Build/QA alignment across 5 concurrent teams (~45 professionals).</li>
+        </ul>
+        <p><b>Mandates &amp; Platform-Wide AI Automation</b></p>
+        <ul class="check">
+          <li>Building the strategic Mandates journey (add/remove/update/view signatories) as the pilot for a platform-wide AI automation strategy.</li>
+          <li>Inbound CRM emails classified by Polaris (LLM-powered, Claude Sonnet 4.5) before Camunda FluxNova orchestrates the workflow.</li>
+          <li>Workflow: ingestion → Textract OCR/signature match → Adobe e-sign → AI agent business validations → ID&amp;V/fraud/AML → HITL review → fulfilment.</li>
+          <li>Two-tier automation: full straight-through for incorporated companies (Companies House lookup); automation to final human check for unincorporated companies.</li>
+          <li>Target: <code>70,000+ requests/month</code> automated, <code>50%+</code> FTE reduction.</li>
+        </ul>
+        <p><b>New &amp; Additional Cards Onboarding</b></p>
+        <ul class="check">
+          <li>Commercial card onboarding/servicing journey for corporate, commercial and business banking clients.</li>
+          <li>Multi-channel origination — EForms, Mobile Banking, Bankline — via Kafka (bulk) and real-time APIs.</li>
+          <li>Enrichment from Equifax, Mytek/Hooyu, e-signature, AML, fraud, sanctions; downstream fulfilment into card issuance, CRM, Hermes notifications.</li>
+        </ul>
+        <p><b>PCF → AWS Migration &amp; Engineering Excellence</b></p>
+        <ul class="check">
+          <li>Modernising Java, Spring Boot, Node.js/NPM, Camunda; phased migration to AWS (VPC, Amazon EKS).</li>
+          <li>Full test automation suite (Selenium, Gherkin/BDD) across every journey — shifted testing left, fail-fast.</li>
+          <li>CI/CD pipelines in PCF via GitLab; release cycle time <code>22 days → &lt;12 days</code>.</li>
+          <li>Introduced Blue-Green deployment — first at the bank — retiring weekend releases; availability <code>&gt;99%</code>.</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>2022–2023 · Tata Consultancy Services — Project Manager / Release Train Manager, CIM, NatWest <span style="color:var(--green);">(RTM, CIM programme)</span></summary>
+        <p><b>Customer Identification Management (CIM)</b></p>
+        <ul class="check">
+          <li>Led delivery of the foundational CIM capability — search, identify and determine existing bank relationships for individuals and legal entities.</li>
+          <li>Established unique Party IDs for primary and associated/related parties (directors, beneficiaries, other relationships).</li>
+          <li>Linked Party IDs to Legal Entity IDs and CIN/BIN across source systems; supported the strategic Party DB.</li>
+          <li>Coordinated Business, Product, Architecture, Engineering, Data teams to resolve cross-system dependencies.</li>
+          <li>Outcome: reusable capability answering who a customer is, what parties are associated, and how they relate — foundation for relationship/hierarchy capabilities.</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>2015–2022 · Standard Chartered Bank — Executive Director / Programme Manager, Technology &amp; Innovation, Singapore <span style="color:var(--green);">($60M+ · 20M+ clients)</span></summary>
+        <p><b>Client Risk Assessment (CRA) Engine</b></p>
+        <ul class="check">
+          <li>Directed modernisation of the CRA Engine — real-time financial crime risk assessment — with the financial crime team.</li>
+          <li>Deep working knowledge of PEP, sanctions, AML, source of wealth/business/income, incorporation details, adverse media, SARs, NPAs, non-compliant transactions.</li>
+          <li>Recreated the CRA rules engine in Excel (nested IF/THEN/ELSE, VLOOKUP) to validate rules ahead of tech delivery.</li>
+        </ul>
+        <p><b>RPDM, BPSI &amp; ESG</b></p>
+        <ul class="check">
+          <li>Led functional/delivery activities across RPDM (Related Party Data Management).</li>
+          <li>Directly managed BPSI (Banking Platform Services &amp; Interfaces): 3 DevOps, 2 developers, 1 principal engineer.</li>
+          <li>Delivered a time-critical ESG initiative (BES requirements) against a stringent timeline.</li>
+        </ul>
+        <p><b>Audit &amp; Regulatory Engagement</b></p>
+        <ul class="check">
+          <li>Directed a <code>$60M+</code> portfolio supporting 20M+ clients across FATCA/CRS, CRA, RPDM, BPSI, ESG.</li>
+          <li>Engaged directly with internal audit, EY, KPMG, Navigant, MAS and RBI — evidencing readiness, driving remediation to closure.</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>2012–2015 · DBS Bank — Senior Business Analyst / Transformation Lead, Institutional Banking, Singapore <span style="color:var(--green);">($7.5M · 6 markets)</span></summary>
+        <p><b>OCRA — Credit Risk Rating Platform</b></p>
+        <ul class="check">
+          <li>Built a full-fledged credit risk rating platform (OCRA) for DBS commercial and business banking customers, under RMG — a flagship 2015 success.</li>
+          <li>Interacts with external rating agencies — Fitch, Moody's, S&amp;P — for customer financial details.</li>
+          <li>Performs Customer Risk Rating (CRR, scale 1–5) on DBS's own risk rating model.</li>
+        </ul>
+        <p><b>Facility Risk Rating &amp; FIRB → AIRB Migration</b></p>
+        <ul class="check">
+          <li>Facility Risk Rating (FRR) with an inbuilt collateral management system for accuracy.</li>
+          <li>Rewrote the entire spec over ~1 year to migrate FRR from FIRB to an AIRB model — updated <code>LGD</code>, <code>PD</code>, <code>EAD</code>, <code>PE</code>, <code>EL</code>, <code>RWA</code> parameters.</li>
+          <li>Built mockups/wireframes, worked through build, SIT, UAT, and drove business go-live.</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>2010–2012 · Citibank — Transformation Functional Lead, Global Customer Repository, Singapore <span style="color:var(--green);">($30M · 26 countries)</span></summary>
+        <ul class="check">
+          <li>Led functional transformation for a $30M Global Customer Repository programme across 26 countries.</li>
+          <li>Established a trusted golden-customer-record capability across businesses, products and platforms.</li>
+          <li>Drove alignment on customer identification, data attributes, business rules, data quality and integration.</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>2009–2010 · ABSA Bank — Business Analyst, Core-Banking Re-Platforming, Johannesburg <span style="color:var(--green);">(Tanzania · Mozambique)</span></summary>
+        <ul class="check">
+          <li>Supported Flexcube core-banking re-platforming and data migration across Tanzania and Mozambique.</li>
+          <li>Worked across Business and Technology teams through solution development, testing, UAT and implementation.</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>2008–2009 · Citibank — Nordics — Business Analyst, Digital / eCommerce Banking, Stockholm &amp; India <span style="color:var(--green);">(4 Nordic markets)</span></summary>
+        <ul class="check">
+          <li>Business Analyst for Citi's Nordics eCommerce business — Credit Cards and Personal Loans across Sweden, Norway, Denmark, Finland.</li>
+          <li>Owned pre-login/authenticated journey requirements — e-banners, account landing pages, transaction summaries, 3-month statement views.</li>
+          <li>Defined MFA/security requirements; built wireframes; coordinated offshore development through SIT.</li>
+          <li>Developed the UAT strategy and independently coordinated go-live validation across all four Nordic markets.</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>2001–2008 · Deutsche Bank · ICICI Bank · Standard Chartered (India) · Ajuba Solutions — Early career, India <span style="color:var(--green);">(Foundational years)</span></summary>
+        <ul class="check">
+          <li>Began in branch operations at Standard Chartered Bank India — hands-on international wire transfers via SWIFT, Nostro/Vostro mechanics, ICH processes, BIC/IBAN and intermediary-bank details.</li>
+          <li>Continued client-facing international funds transfer work through ICICI Bank and Deutsche Bank.</li>
+        </ul>
+      </details>
 
       <h2>Core skills</h2>
       <div class="skills-cols">
