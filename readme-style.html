@@ -128,12 +128,12 @@
         <li><span class="badge b-flag-delivered">delivered</span> <b>Delivery governance</b>: SDLC governance (Agile + Waterfall), RAID ownership and release-train coordination across 5 concurrent teams, 45 professionals.</li>
         <li><span class="badge b-flag-delivered">delivered</span> <b>Quality</b>: manual regression replaced by a full Selenium/Gherkin-BDD suite across every servicing journey.</li>
         <li><span class="badge b-flag-progress">in-progress</span> <b>Platform modernisation</b>: phased migration from an on-premises PaaS environment to AWS, journey by journey.</li>
-        <li><span class="badge b-flag-progress">in-progress, migrating</span> <b>Mandates servicing journey</b>: already live, processed largely manually today at <code>~730 requests/day</code> (<code>6,000 to 7,000</code> over two weeks), supporting a team of <code>~70 people</code>. Migrating onto a new AI-enabled platform, not yet live in production. Platform-wide target: <code>70,000+ requests/month</code>, <code>50%+</code> FTE reduction.</li>
+        <li><span class="badge b-flag-progress">in-progress, migrating</span> <b>Mandates servicing journey</b>: already live, processed largely manually today at <code>~730 requests/day</code> (<code>6,000 to 7,000</code> over two weeks), supporting a team of <code>~70 people</code>, split across two fragmented legacy platforms. Migrating onto a single unified AI-enabled platform on AWS, not yet live in production. Platform-wide target: <code>70,000+ requests/month</code>, <code>50%+</code> FTE reduction.</li>
       </ul>
 
       <h2>Signature build, in progress</h2>
-      <h3>Mandates: migrating a live, high-volume journey onto an AI-enabled platform</h3>
-      <p class="lede">Customers add, remove, update or view signatories on business accounts. This journey is already live and processed largely manually today. The migration now underway moves it onto a new platform where each request routes through an AI-enabled workflow.</p>
+      <h3>Mandates: migrating a live, high-volume journey onto a unified AI-enabled platform</h3>
+      <p class="lede">Customers add, remove, update or view signatories on business accounts. This journey is already live and processed largely manually today, split across two disconnected legacy platforms. The migration now underway moves it onto one unified platform where each request routes through an AI-enabled workflow.</p>
 
       <div class="stat-line">
         <div><b>~730/day</b><span>manual volume today</span></div>
@@ -143,14 +143,20 @@
 
 <pre><span class="comment"># servicing-journey.workflow (migration in progress, not yet in production)</span>
 Request received
-  <span class="arrow">→</span> LLM-based classification
-  <span class="arrow">→</span> Workflow orchestration
+  <span class="arrow">→</span> Data extracted from request
+  <span class="arrow">→</span> Account &amp; authoriser lookup
   <span class="arrow">→</span> OCR + signature match
   <span class="arrow">→</span> E-sign confirmation
-  <span class="arrow">→</span> Automated business validations
-  <span class="arrow">→</span> ID&amp;V / fraud / AML checks
+  <span class="arrow">→</span> Automated validation agents
+  <span class="arrow">→</span> External register checks
   <span class="arrow">→</span> Human review (HITL)
   <span class="arrow">→</span> Downstream fulfilment</pre>
+
+      <details>
+        <summary>Migration phasing (incremental, independently releasable)</summary>
+        <p>Government-backed securities, single-party mandates first, then multi-party. Then Commercial Banking incorporated entities, then every Commercial Banking flow. Business Banking last.</p>
+        <p>No data or process migration between platforms: a case already open on a legacy platform finishes there. New cases start on the unified platform. Legacy systems retire once migration completes.</p>
+      </details>
 
       <details>
         <summary>Two-tier automation model, once scaled (target)</summary>
@@ -167,7 +173,7 @@ Request received
         <ul class="check">
           <li>Programme manager for NatWest's full C&amp;I Banking servicing platform, covering Mandates, Cards, Payment Queries, Cheques, ePrivacy and Change of Business Details, leading 5 concurrent Agile teams (~45 professionals).</li>
           <li>Cut release cycle time from 22 days to under 12 via GitLab CI/CD and the bank's first Blue-Green deployment.</li>
-          <li>Leading migration of Mandates, an already-live, high-volume servicing journey processing around 730 requests a day (roughly 6,000 to 7,000 over a two-week period), currently supported by a team of around 70 people, onto a new AI-enabled platform. Not yet live in production.</li>
+          <li>Leading migration of Mandates, an already-live, high-volume servicing journey processing around 730 requests a day (roughly 6,000 to 7,000 over a two-week period), supported by a team of around 70 people, from two fragmented legacy platforms onto a single unified AI-enabled platform. Phased incrementally by segment, no data migration between platforms. Not yet live in production.</li>
           <li>Running the phased AWS migration, cutting over one journey at a time.</li>
         </ul>
       </div>
