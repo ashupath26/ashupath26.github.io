@@ -31,6 +31,14 @@
   .link-row a, .link-row button{font-weight:500; color:var(--blue); background:none; border:none; padding:0; font-family:inherit; font-size:14px; cursor:pointer;}
 
   header.hero{padding:64px 0 44px;}
+  .hero-grid{display:grid; grid-template-columns:1fr auto; gap:44px; align-items:center;}
+  .hero-photo img{width:200px; height:200px; border-radius:50%; object-fit:cover; display:block;
+    box-shadow:0 0 0 1px var(--border), 0 1px 3px rgba(60,64,67,0.12), 0 10px 26px -10px rgba(60,64,67,0.35);}
+  @media (max-width:760px){
+    .hero-grid{grid-template-columns:1fr; gap:24px;}
+    .hero-photo{order:-1;}
+    .hero-photo img{width:132px; height:132px;}
+  }
   .hero .eyebrow{margin-bottom:14px;}
   .hero h1{font-size:clamp(34px, 5.4vw, 52px); letter-spacing:-0.01em;}
   .hero .role{margin-top:6px; font-size:16px; color:var(--blue); font-weight:500;}
@@ -111,7 +119,8 @@
 <body>
 
 <header class="hero">
-  <div class="wrap">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
     <div class="eyebrow">London · Director / Programme Manager, Financial Services</div>
     <h1>Ashutosh Pathak</h1>
     <div class="role">Programme &amp; Delivery Director</div>
@@ -124,6 +133,11 @@
       <a href="Ashutosh_Pathak_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
     </div>
     <div class="reveal-box" id="revealBox" style="display:none;"></div>
+    </div>
+    <div class="hero-photo">
+      <img src="ashutosh.jpg" width="200" height="200"
+           alt="Ashutosh Pathak, Programme and Delivery Director, London" />
+    </div>
   </div>
 </header>
 
@@ -361,9 +375,9 @@
       </div>
       <div>
         <h4>Certifications</h4>
+        <div class="item">AWS Certified AI Practitioner<span class="sub">Amazon Web Services, September 2026</span></div>
         <div class="item">Certified ScrumMaster<span class="sub">Scrum Alliance, 2018</span></div>
-        <div class="item">AWS Certified AI Practitioner<span class="sub">Sitting Q4 2026</span></div>
-        <div class="item">AWS Certified Solutions Architect, Associate<span class="sub">Sitting Q4 2026</span></div>
+        <div class="item">AWS Certified Solutions Architect, Associate<span class="sub">In progress, sitting Q4 2026</span></div>
       </div>
     </div>
     <div class="section-head" style="margin-top:34px;"><div class="eyebrow">Markets</div></div>
@@ -386,6 +400,7 @@
 <footer>
   <div class="wrap">
     <div class="note">Ashutosh Pathak · London, United Kingdom · Director and Programme Manager roles in financial services and regulated technology.</div>
+    <div class="note" style="margin-top:6px;"><a href="https://www.ashutoshpathak.co.uk">www.ashutoshpathak.co.uk</a></div>
     <div class="style-switch">Also viewable as: <a href="index.html">Ledger style</a> · <span class="current">Material (this page)</span> · <a href="readme-style.html">README style</a></div>
   </div>
 </footer>
